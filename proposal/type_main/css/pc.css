@@ -1,9 +1,9 @@
 /* Variables */
 html {
-    --bodyWidth: 1200px;
-    --bodySide: 60px;
+    /* --bodyWidth: 1200px; */
+    --bodySide: 106px;
 
-    --headerHeight: 100px;
+    --headerHeight: 110px;
     --sectionGap: 120px;
     --footerGap: 120px;
     --footerHeight: 60px;
@@ -13,39 +13,66 @@ html {
 }
 
 /* Layout */
-.in-sec {width: calc(var(--bodyWidth) + (var(--bodySide) * 2)); margin: 0 auto; padding:0 var(--bodySide);}
-.page-header {height: var(--headerHeight);}
-.page-header .in-sec {height: 100%;}
-.page-header .page-header-sec {position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;}
-.page-container {padding: 0 0 var(--footerGap) 0;}
-.page-container .page-sec {margin:calc(var(--sectionGap) / 2) 0;}
-.page-footer {height: var(--footerHeight);}
-.page-footer .in-sec {height: 100%;}
+.in-sec {margin: 0 auto; max-width:100%; padding:0 var(--bodySide);}
+.page-sec {position: relative; z-index: 50;}
+.page-header {position: fixed; left: 0; top: 0; width: 100%; height: var(--headerHeight);}
+.page-header .in-sec {height: 100%; width: 100%; min-width: var(--bodyWidth);}
+.page-header .page-header-sec {width: 100%; height: 100%; display: flex; align-items: center;}
+.page-footer {position:relative; z-index: 100; display: flex; justify-content: center; background-color: #1D261E; width: 100%; overflow: hidden;;}
 .page-footer-sec {position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;}
-.page-header.is-fixed {position: fixed;}
-.page-header.is-fixed + .page-container {padding-top: var(--headerHeight);}
 
 /* Header Section */
-.page-header .logo-area {position: absolute; left: 0; top: 50%; transform: translateY(-50%);}
-.gnb {display: flex; align-items: center; gap: 20px;}
-.gnb .depth1-node {}
-.gnb .depth1-link {}
-.gnb .depth2-area {}
-.gnb .depth2-node {}
-.gnb .depth2-link {}
-.gnb .depth2-area {display: none;}
-.gnb .depth2-area.is-active {display: block;}
-
-/* Content - Common */
-.swiper-wrap {position: relative;}
+.page-header .logo-area {position: absolute; left: 106px; top: 50%; transform: translateY(-50%); z-index: 0;}
+.page-header .nav-area {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 100;}
+.page-header .nav-area .btn-nav {display: flex; align-items: center; justify-content: center; width: 144px; height: 48px; background: #fff url('../images/pc/icn-nav.png') no-repeat 0 0 / contain; border-radius: 30px; transition: all 0.3s ease;}
+.page-header .nav-area .btn-nav:focus-visible,
+.page-header .nav-area .btn-nav:active {background-color: #eee;}
 
 /* Content - Section1 */
+.section-1 {position: relative; width: 100%; height: calc(200vh - 240px); background-color: #Fff; overflow: hidden;}
+.section-1 .visual-desc {position: fixed; left: 0; top: 0; width: 100%; height: calc(100vh - 240px); padding-top: var(--headerHeight);}
+.section-1 .visual-desc .desc {position: absolute; left: 50%; top: 50%; transform:translate(-50%, -50%); font-weight: 700; font-size: 60px; line-height: 80px; text-align: center;}
+.section-1 .visual-list {position: absolute; top: 0; display: flex; justify-content: center; align-items: flex-start; gap: 28px; overflow: hidden; width: calc(100% + 424px); padding-top:calc(100vh - 240px); margin: 0 -212px;}
+.section-1 .visual-list.is-fixed {position: fixed;}
+.section-1 .visual-list .item {display: flex; align-items: flex-end; justify-content: center; width: 424px; height: 240px;}
+.section-1 .visual-list .item .item-thumb {display: flex; align-items: flex-end; justify-content: center; width: 424px; height: 240px; overflow: hidden; border-radius: 50px 50px 0 0; transition:all 0.3s ease;}
+.section-1 .visual-list .item:nth-child(3) .item-thumb {position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);}
+.section-1 .visual-list .item img {object-fit: fill;}
 
 /* Content - Section2 */
+.section-2 {height: 100vh; background: #000;}
+.section-2 .in-sec {height: 100%; position: relative;}
+.section-2 .tit-wrap {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+.section-2 .tit-wrap p {font-weight: 700; font-size: 60px; line-height: 80px; color: #fff; white-space: nowrap;}
+.section-2 .txt-wrap {position: absolute; right: calc(var(--bodySide)); bottom: 141px;}
+.section-2 .txt-wrap p {font-weight: 500; font-size: 24px; line-height: 36px; color: #fff;}
 
 /* Content - Section3 */
+.section-3 {height: 100vh; background: #000;}
+.section-3 .bg-sec {position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+.section-3 .bg-sec img {object-fit: contain; width: 100%; height: 100%;}
+.section-3 .in-sec  {display: flex; flex-direction: column; justify-content: flex-end; height: 100%;}
+.section-3 .con-sec {position: absolute; left: var(--bodySide); bottom: 0;}
+.section-3 .con-sec.sec-1 {opacity: 1;}
+.section-3 .con-sec.sec-2 {opacity: 0;}
+.section-3 .con-sec.sec-3 {opacity: 0;}
 
 /* Content - Section4 */
+.section-4 {background-color: #fff;}
+.section-4 .tit-sec {width: 100%; overflow: hidden; padding-top: 40px;}
+.section-4 .tit-sec .marquee {font-weight: 400; font-size: 200px; line-height: 240px; text-align: left; white-space: nowrap;}
+.section-4 .con-sec-wrap {display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%;}
+.section-4 .in-sec {position: relative; width: 100%; height: 800px;}
+.section-4 .con-sec {position: absolute; left: var(--bodySide); bottom: 0; right: var(--bodySide); height: 100%;}
 
 /* Content - Section5 */
-
+.section-5 {padding-bottom: 160px; padding-top: 70px; background-color: #fff;}
+.section-5 .sec-header .type {display: block; font-weight: 700; font-size: 28px; line-height: 40px; color: #1F9E49;}
+.section-5 .sec-header .title {display: block; margin-top: 32px; font-weight: 700; font-size: 60px; line-height: 80px;}
+.section-5 .sec-container {margin-top: 80px;}
+.section-5 .card-list {display: flex; justify-content: space-between;}
+.section-5 .card {display: block; overflow: hidden; width: 540px;}
+.section-5 .card-cont {width: 100%; margin-top: 32px; overflow: hidden;}
+.section-5 .card-cont .tit {font-weight: 500; font-size: 28px; line-height: 40px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+.section-5 .card-cont .con {margin-top: 12px; font-weight: 400; font-size: 18px; line-height: 28px; overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;}
+.section-5 .card-cont .date {margin-top: 40px; font-weight: 500; font-size: 16px; line-height: 24px; color: #999;}
