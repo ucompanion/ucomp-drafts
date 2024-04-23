@@ -13,5 +13,28 @@
 	<div class="wrapper">
 		<img src="images/mo/type_b_01.png" alt="" />
 	</div>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            // 섹션 스크롤링
+            const sections = document.querySelectorAll('section');
+            function checkSectionsVisibility() {
+                // Section
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (sectionTop < windowHeight * 0.75) {
+                        section.classList.add('show');
+                    }
+                });
+            }
+            function initScrolling(){
+                checkSectionsVisibility();
+            }
+
+            initScrolling();
+            window.addEventListener('scroll', initScrolling);
+        });
+    </script>
+
 </body>
 </html>
