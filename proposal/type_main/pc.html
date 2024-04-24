@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/pc.css" />
+	<script src="js/jquery.min.js"></script>
 </head>
 <body>
 <div class="page-wrap">
@@ -44,14 +45,17 @@
 			<!-- e: section1 -->
 
 			<!-- s: section2 -->
-			<div class="page-sec section-2">
-				<div class="in-sec">
-					<div class="tit-wrap">
-						<p>글로벌 인류기업으로 도양하고</p>
-						<p>고객의 삶의 질 향상에 기여하는</p>
-						<p>기업이 될 것입니다.</p>
+			<div class="page-sec section-2" id="section2">
+				<div class="in-sec" id="section2Inner">
+					<div class="tit-wrap" id="section2Title">
+						<p id="section2Title1">글로벌 인류기업으로 도양하고</p>
+						<p id="section2Title2">고객의 삶의 질 향상에 기여하는</p>
+						<p id="section2Title3">기업이 될 것입니다.</p>
 					</div>
-					<div class="txt-wrap">
+					<div class="marquee-wrap">
+						<marquee direction="left" scrollamount="15">HYOSUNG MISSION</marquee>
+					</div>
+					<div class="txt-wrap" id="section2text">
 						<p>
 							최고의 기술과 경영 역량을 바탕으로 인류의 보다 나은 생활을 선도한다. <br/>
 							효성의 존재 이유는 최고의 인재들이 최고의 기술과 경영역량을 발휘함으로써<br/>
@@ -63,18 +67,18 @@
 			</div>
 			<!-- e: section2 -->
 			<!-- s: section3 -->
-			<div class="page-sec section-3">
-				<div class="bg-sec">
+			<div class="page-sec section-3" id="section3">
+				<div class="bg-sec" id="section3Bg">
 					<img src="images/pc/sec3-visual-start.png" alt="" />
 				</div>
-				<div class="in-sec">
-					<div class="con-sec sec-1">
+				<div class="in-sec" id="section3Inner">
+					<div class="con-sec sec-1" id="section3Con1">
 						<img src="images/pc/sec3-visual-01.png" alt="" />
 					</div>
-					<div class="con-sec sec-2">
+					<div class="con-sec sec-2" id="section3Con2">
 						<img src="images/pc/sec3-visual-02.png" alt="" />
 					</div>
-					<div class="con-sec sec-3">
+					<div class="con-sec sec-3" id="section3Con3">
 						<img src="images/pc/sec3-visual-03.png" alt="" />
 					</div>
 				</div>
@@ -87,18 +91,18 @@
 						<marquee direction="left" scrollamount="15">HYOSUNG BUSINESS AREA HYOSUNG BUSINESS AREA HYOSUNG BUSINESS AREA</marquee>
 					</div>
 				</div>
-				<div class="con-sec-wrap">
+				<div class="con-sec-wrap" id="section4wrap">
 					<div class="in-sec">
-						<div class="con-sec sec-1">
+						<div class="con-sec sec-1" id="section4Con1">
 							<img src="images/pc/sec4-visual-01.png" alt="" />
 						</div>
-						<div class="con-sec sec-2">
+						<div class="con-sec sec-2" id="section4Con2">
 							<img src="images/pc/sec4-visual-02.png" alt="" />
 						</div>
-						<div class="con-sec sec-3">
+						<div class="con-sec sec-3" id="section4Con3">
 							<img src="images/pc/sec4-visual-03.png" alt="" />
 						</div>
-						<div class="con-sec sec-3">
+						<div class="con-sec sec-4" id="section4Con4">
 							<img src="images/pc/sec4-visual-04.png" alt="" />
 						</div>
 					</div>
@@ -155,52 +159,7 @@
 		<img src="images/pc/footer.png" alt="" />
 	 </footer>
 </div>
-<script>
-// 마우스휠 설정
-function preventScroll(event) {
-    event.preventDefault();
-}
-function wheelPassive(isState){
-	window.addEventListener('wheel', preventScroll, { passive: isState });
-}
-// wheelPassive(true);
-
-
-// 스크롤 양에 따라 스타일을 적용하는 함수
-function applyStyleOnScroll(id, startScrollTop, endScrollTop, styleProperty, styleUnit, startStyleValue, endStyleValue) {
-    // 스크롤 이벤트 핸들러
-    function handleScroll() {
-        // 현재 세로 스크롤 위치를 가져옵니다.
-        var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
-
-        // 스크롤 시작점과 끝나는 점 사이에서만 스타일을 조정합니다.
-        if (currentScrollTop >= startScrollTop && currentScrollTop <= endScrollTop) {
-            // 스크롤 양에 따라 스타일을 조정합니다.
-            var progress = (currentScrollTop - startScrollTop) / (endScrollTop - startScrollTop);
-            var styleValue = startStyleValue + (endStyleValue - startStyleValue) * progress;
-
-            // 예시: 스크롤한 만큼 요소의 높이를 조정하는 경우
-            var element = document.getElementById(id);
-            element.style[styleProperty] = styleValue + styleUnit;
-        } else if (currentScrollTop > endScrollTop) {
-            // 현재 스크롤 위치가 종료 시점보다 큰 경우에는 최대값으로 처리합니다.
-            var element = document.getElementById(id);
-            element.style[styleProperty] = endStyleValue + styleUnit;
-        }
-    }
-
-    // 스크롤 이벤트에 handleScroll 함수를 연결합니다.
-    window.addEventListener('scroll', handleScroll);
-}
-
-// 페이지 로드 시에 applyStyleOnScroll 함수를 호출하여 스크롤 이벤트를 처리합니다.
-document.addEventListener('DOMContentLoaded', function() {
-    // 시작점과 끝나는 점, 그리고 시작값과 종료값을 인자로 전달하여 함수를 호출합니다.
-    applyStyleOnScroll("section1Thumb", 0, window.innerHeight - 240, 'width', 'px', 424, window.innerWidth); // 예시 값으로 시작점과 끝나는 점, 시작값과 종료값을 설정했습니다.
-    applyStyleOnScroll("section1Thumb", 0, window.innerHeight - 240, 'height', 'px', 240, window.innerHeight); // 예시 값으로 시작점과 끝나는 점, 시작값과 종료값을 설정했습니다.
-
-});
-</script>
+<script src="js/pc.js"></script>
 </body>
 
 </html>
