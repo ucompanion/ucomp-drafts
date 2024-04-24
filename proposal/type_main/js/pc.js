@@ -2,6 +2,83 @@
 function parallaxValue(currentScrollTop, startScrollTop, endScrollTop){
 	return (currentScrollTop - startScrollTop) / (endScrollTop - startScrollTop)
 }
+
+// 스크롤 휠 이벤트 핸들러
+function preventScroll(event) {
+    event.preventDefault();
+}
+function sectionsScroll() {
+    var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+    var scroll_1 = document.querySelector('.section-1').getBoundingClientRect().top + currentScrollTop + window.innerHeight - 240;
+    var scroll_21 = document.querySelector('.section-2').getBoundingClientRect().top + currentScrollTop;
+    var scroll_22 = scroll_21 + (window.innerHeight / 2);
+    var scroll_31 = document.querySelector('.section-3').getBoundingClientRect().top + currentScrollTop;
+    var scroll_32 = scroll_31 + (window.innerHeight * 1);
+    var scroll_33 = scroll_31 + (window.innerHeight * 2);
+    var scroll_34 = scroll_31 + (window.innerHeight * 3);
+    var scroll_41 = document.querySelector('.section-4').getBoundingClientRect().top + currentScrollTop;
+    var scroll_42 = document.querySelector('.section-4 .con-sec-wrap').getBoundingClientRect().top + currentScrollTop;
+    var scroll_43 = scroll_42 + (window.innerHeight * 1);
+    var scroll_44 = scroll_42 + (window.innerHeight * 2);
+    var scroll_45 = scroll_42 + (window.innerHeight * 3);
+    var scroll_46 = scroll_42 + (window.innerHeight * 4);
+    var scroll_51 = document.querySelector('.section-5').getBoundingClientRect().top + currentScrollTop;
+
+    var scrollPositions = [
+        0,
+        scroll_1,
+        scroll_21,
+        scroll_22,
+        scroll_31,
+        scroll_32,
+        scroll_33,
+        scroll_34,
+        scroll_41,
+        scroll_42,
+        scroll_43,
+        scroll_44,
+        scroll_45,
+        scroll_51
+      ];
+      var currentPositionIndex = 0;
+      var isScrolling = false;
+
+      // 스크롤 이벤트 리스너
+      $(window).on('wheel', function(event) {
+        // 스크롤 이벤트를 처리합니다.
+        var deltaY = event.originalEvent.deltaY;
+        if (!isScrolling) {
+          if (deltaY > 0) {
+            if (currentPositionIndex < scrollPositions.length - 1) {
+              currentPositionIndex++;
+              scrollToPosition(currentPositionIndex);
+            }
+          } else if (deltaY < 0) {
+            if (currentPositionIndex > 0) {
+              currentPositionIndex--;
+              scrollToPosition(currentPositionIndex);
+            }
+          }
+
+          // 스크롤 이벤트를 passive로 처리할 수 없으므로 preventDefault() 호출
+          window.addEventListener('wheel', preventScroll, { passive: false });
+        }
+      });
+
+      // 특정 위치로 스크롤 이동하는 함수
+      function scrollToPosition(index) {
+        var position = scrollPositions[index];
+        $('html, body').stop().animate({
+          scrollTop: position
+        }, 100, function() {
+          // 스크롤 이동이 완료되면 스크롤 이동 중 여부를 초기화합니다.
+          isScrolling = false;
+        });
+
+        // 스크롤 이동 중임을 표시합니다.
+        isScrolling = true;
+      }
+}
 function section1(){
 	var elementList = document.getElementById('section1VisualList');
 	var element = document.getElementById('section1Thumb');
@@ -252,7 +329,7 @@ function section4() {
 
 }
 function applyStyleOnScrollInit() {
-	// 시작점과 끝나는 점, 그리고 시작값과 종료값을 인자로 전달하여 함수를 호출합니다.
+    // 시작점과 끝나는 점, 그리고 시작값과 종료값을 인자로 전달하여 함수를 호출합니다.
 	section1();
 	section2();
 	section3();
@@ -267,5 +344,6 @@ window.addEventListener('scroll', applyStyleOnScrollInit);
 
 // 페이지 로드 시에 applyStyleOnScroll 함수를 호출하여 스크롤 이벤트를 처리합니다.
 document.addEventListener('DOMContentLoaded', function() {
-	applyStyleOnScrollInit();
+    applyStyleOnScrollInit();
+    sectionsScroll();
 });

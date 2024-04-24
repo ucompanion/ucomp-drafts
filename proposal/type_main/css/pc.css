@@ -76,12 +76,11 @@ body {
 .section-4 .tit-sec .marquee {font-weight: 400; font-size: 200px; line-height: 240px; text-align: left; white-space: nowrap;}
 .section-4 .con-sec-wrap {position: relative; height: 400vh; width: 100%;}
 .section-4 .in-sec {position: relative; width: 100%; height: 100vh;}
-.section-4 .con-sec {position: absolute; left: var(--bodySide); top: 0; right: var(--bodySide); height: 100%; transform-style: preserve-3d;}
+.section-4 .con-sec {position: absolute; left: var(--bodySide); top: 80px; right: var(--bodySide); height: 100%; transform-style: preserve-3d;}
 .section-4 .con-sec.sec-1 {z-index: 10;}
 .section-4 .con-sec.sec-2 {z-index: 11;}
 .section-4 .con-sec.sec-3 {z-index: 12;}
-.section-4 .con-sec.sec-4 {z-index: 13; perspective: 700px;}
-.section-4 .con-sec.sec-4 img {transform: rotateX(5deg);}
+.section-4 .con-sec.sec-4 {z-index: 13; transform: scale(0.9);}
 
 /* Content - Section5 */
 .section-5 {padding-bottom: 160px; padding-top: 70px; background-color: #fff;}
