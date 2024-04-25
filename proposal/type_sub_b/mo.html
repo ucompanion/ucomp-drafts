@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Leesoonjong</title>
+    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/mo.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="section">
+        <div style="height: 500px; background-color: yellow"></div>
+        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
+      </div>
+      <div class="section">
+        <div style="height: 500px; background-color: red"></div>
+        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
+      </div>
+      <div class="section">
+        <div style="height: 500px; background-color: yellow"></div>
+        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
+      </div>
+      <div class="section">
+        <div style="height: 500px; background-color: red"></div>
+        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
+      </div>
+      <div class="section">
+        <div style="height: 500px; background-color: yellow"></div>
+        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
+      </div>
+      <div class="section">
+        <div style="height: 500px; background-color: red"></div>
+        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
+      </div>
+      <div class="section">
+        <div style="height: 500px; background-color: yellow"></div>
+        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
+      </div>
+      <div class="section">
+        <div style="height: 500px; background-color: red"></div>
+        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
+      </div>
+    </div>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        // 섹션 스크롤링
+        const sections = document.querySelectorAll(".section");
+        function checkSectionsVisibility() {
+          // Section
+          sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (sectionTop < windowHeight * 0.75) {
+              section.classList.add("show");
+            }
+          });
+        }
+        function initScrolling() {
+          checkSectionsVisibility();
+        }
+
+        initScrolling();
+        window.addEventListener("scroll", initScrolling);
+      });
+    </script>
+  </body>
+</html>
