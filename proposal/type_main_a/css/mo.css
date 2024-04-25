@@ -25,12 +25,12 @@ body {
 /* Layout */
 .in-sec {margin: 0 auto; max-width:100%; padding:0 var(--bodySide);}
 .page-sec {position: relative; z-index: 50;}
-.page-header {position: absolute; left: 0; top: 0; width: 100%; z-index: 100; height: var(--headerHeight); visibility: visible; opacity: 1; transition:all 0.2s ease;}
+.page-header {position: fixed; left: 0; top: 0; width: 100%; z-index: 100; height: var(--headerHeight); visibility: visible; transform: translateY(0%); opacity: 1; transition:all 0.2s ease;}
 .page-header .in-sec {height: 100%; width: 100%; min-width: var(--bodyWidth);}
 .page-header .page-header-sec {width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;}
 .page-footer {position:relative; z-index: 100; display: flex; justify-content: center; background-color: #1D261E; width: 100%; overflow: hidden;;}
 .page-footer .btn-top {position: absolute; right: 0; top: 0; width: 56px; height: 56px;}
-.is-header-hide .page-header {visibility: hidden; opacity: 0;}
+.is-header-hide .page-header {visibility: hidden; opacity: 0; transform: translateY(-110%);}
 
 /* Header Section */
 .page-header .logo-area {opacity: 1; transition:opacity 0.2s ease;}
@@ -87,27 +87,29 @@ body {
 .section-2 .txt-wrap p + p {margin-top: 20px;}
 
 /* Content - Section3 */
-.section-3 {height: 400vh; background: #000;}
+.section-3 {height: calc(100vh + (var(--conSecHeight) * 3)); background: #000;}
 .section-3 .bg-sec {display: flex; align-items: center; justify-content: center; position: absolute; left: 0; top: 0; width: 100%; height: 100vh; overflow: hidden; opacity: 1; transition:opacity 0.2s ease;}
 .section-3 .bg-sec img {height: 100%;}
 .section-3.is-fixed .bg-sec {position: fixed;}
-.section-3 .in-sec  {position: absolute; left: 0; top: 100vh; z-index: 10; display: block; height: 300vh; width: 100%;}
-.section-3 .con-sec {position: absolute; left: var(--bodySide); bottom: 0; display: flex; flex-direction: column; justify-content: flex-end; height: 100vh;}
-.section-3 .con-sec.sec-1 {top:0; opacity: 0;}
-.section-3 .con-sec.sec-2 {top:100vh; opacity: 0;}
-.section-3 .con-sec.sec-3 {top:200vh; opacity: 0;}
+.section-3 { --conSecHeight: 560px; }
+.section-3 .in-sec  {position: absolute; left: 0; top: 100vh; z-index: 10; display: block; height: calc(var(--conSecHeight) * 3); width: 100%;}
+.section-3 .con-sec {position: absolute; left: var(--bodySide); top: 0; padding-top: 60px; display: flex; flex-direction: column; justify-content: flex-start; height: var(--conSecHeight)}
+.section-3 .con-sec.sec-1 {top:calc(var(--conSecHeight) * 0); opacity: 0;}
+.section-3 .con-sec.sec-2 {top:calc(var(--conSecHeight) * 1); opacity: 0;}
+.section-3 .con-sec.sec-3 {top:calc(var(--conSecHeight) * 2); opacity: 0;}
 
 /* Content - Section4 */
 .section-4 {background-color: #fff;}
+.section-4 { --conSecHeight:492px }
 .section-4 .tit-sec {width: 100%; overflow: hidden; padding-top: 40px;}
 .section-4 .tit-sec .marquee {height: 64px; font-weight: 400; font-size: 64px; line-height: 64px; text-align: left; white-space: nowrap; color: #0CDE51;}
-.section-4 .con-sec-wrap {position: relative; height: 400vh; width: 100%;}
+.section-4 .con-sec-wrap {position: relative; height: calc(40px + (var(--conSecHeight) * 4)); width: 100%;}
 .section-4 .in-sec {position: relative; width: 100%; height: 100vh;}
-.section-4 .con-sec {position: absolute; left: var(--bodySide); top: calc((100vh - 800px) / 2); right: var(--bodySide); height: 100%; transform-style: preserve-3d;}
+.section-4 .con-sec {position: absolute; left: var(--bodySide); right: var(--bodySide); height: var(--conSecHeight); transform-style: preserve-3d;}
 .section-4 .con-sec.sec-1 {z-index: 10; top: 40px;}
-.section-4 .con-sec.sec-2 {z-index: 11; top: 100vh;}
-.section-4 .con-sec.sec-3 {z-index: 12; top: 100vh;}
-.section-4 .con-sec.sec-4 {z-index: 13; top: 100vh;}
+.section-4 .con-sec.sec-2 {z-index: 11; top: calc(40px + (var(--conSecHeight) * 1));}
+.section-4 .con-sec.sec-3 {z-index: 12; top: calc(40px + (var(--conSecHeight) * 2));}
+.section-4 .con-sec.sec-4 {z-index: 13; top: calc(40px + (var(--conSecHeight) * 3));}
 .section-4 .con-sec-wrap.is-fixed .in-sec {position: fixed;}
 
 /* Content - Section5 */
