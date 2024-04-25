@@ -92,19 +92,19 @@ html {
 /* common */
 .icon {
   display: inline-block;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
 }
 .icon.global {
-  background: url("/proposal/type_main/images/pc/b_icon_global.png") no-repeat;
+  background: url("/proposal/type_main_b/images/pc/b_icon_global.png") no-repeat;
   background-size: cover;
 }
 .icon.search {
-  background: url("/proposal/type_main/images/pc/b_icon_search.png") no-repeat;
+  background: url("/proposal/type_main_b/images/pc/b_icon_search.png") no-repeat;
   background-size: cover;
 }
 .icon.menu {
-  background: url("/proposal/type_main/images/pc/b_icon_menu.png") no-repeat;
+  background: url("/proposal/type_main_b/images/pc/b_icon_menu.png") no-repeat;
   background-size: cover;
 }
 
@@ -136,14 +136,6 @@ html {
   font-size: 20px;
   color: rgba(7, 180, 35, 1);
 }
-.main header nav ul.menu {
-  display: flex;
-  gap: 60px;
-}
-.main header nav ul.menu li {
-  font-weight: 500;
-  font-size: 22px;
-}
 .main header .gnb {
   display: flex;
   align-items: center;
@@ -163,7 +155,8 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("/proposal/type_main/images/pc/main_bg.png") no-repeat 50% 50%;
+  background: url("/proposal/type_main_b/images/pc/main_bg.png") no-repeat 50%
+    50%;
   background-size: contain;
   transform: scale(4.5);
   transition: transform 1s;
@@ -242,7 +235,7 @@ html {
   content: "";
   width: 15px;
   height: 13.65px;
-  background: url("/proposal/type_main/images/pc/b_icon_up.png") no-repeat;
+  background: url("/proposal/type_main_b/images/pc/b_icon_up.png") no-repeat;
   background-size: cover;
 }
 .main .cont-bttm .stock-data .data-fluid {
