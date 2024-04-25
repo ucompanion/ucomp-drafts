@@ -8,7 +8,7 @@ function preventScroll(event) {
     event.preventDefault();
 }
 function sectionsScroll() {
-    window.scrollTo(0, 0);
+    console.log("window.scrollTo(0, 0)");
     var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
     var scroll_1 = document.querySelector('.section-1').getBoundingClientRect().top + currentScrollTop + window.innerHeight - 240;
     var scroll_21 = document.querySelector('.section-2').getBoundingClientRect().top + currentScrollTop;
@@ -26,8 +26,8 @@ function sectionsScroll() {
     var scroll_46 = scroll_42 + (window.innerHeight * 4);
     var scroll_51 = document.querySelector('.section-5').getBoundingClientRect().top + currentScrollTop;
     var scroll_90 = scroll_51 + (100 * 1);
-    var scroll_last = document.documentElement.scrollHeight - window.innerHeight;
-    console.log(scroll_last);
+    var scroll_last = document.documentElement.scrollHeight - window.innerHeight - 3;
+    // console.log(scroll_last);
     var scrollPositions = [
         0,
         scroll_1,
@@ -47,55 +47,75 @@ function sectionsScroll() {
         scroll_51,
         scroll_90,
         scroll_last,
-      ];
-      var currentPositionIndex = 0;
-      var isScrolling = false;
+    ];
+    var currentPositionIndex = 0;
+    var isScrolling = false;
 
-      // 스크롤 이벤트 리스너
-      $(window).on('wheel', function(event) {
+    // 스크롤 이벤트 리스너
+    $(window).on('wheel', function(event) {
         // 스크롤 이벤트를 처리합니다.
         var deltaY = event.originalEvent.deltaY;
         if (!isScrolling) {
-          if (deltaY > 0) {
+            if (deltaY > 0) {
             if (currentPositionIndex < scrollPositions.length - 1) {
-              currentPositionIndex++;
-              scrollToPosition(currentPositionIndex);
+                currentPositionIndex++;
+                scrollToPosition(currentPositionIndex);
             }
-          } else if (deltaY < 0) {
+            } else if (deltaY < 0) {
             if (currentPositionIndex > 0) {
-              currentPositionIndex--;
-              scrollToPosition(currentPositionIndex);
+                currentPositionIndex--;
+                scrollToPosition(currentPositionIndex);
             }
-          }
+            }
 
-          // 스크롤 이벤트를 passive로 처리할 수 없으므로 preventDefault() 호출
-          window.addEventListener('wheel', preventScroll, { passive: false });
+            // 스크롤 이벤트를 passive로 처리할 수 없으므로 preventDefault() 호출
+            window.addEventListener('wheel', preventScroll, { passive: false });
         }
-      });
+    });
 
-      // 특정 위치로 스크롤 이동하는 함수
-      function scrollToPosition(index) {
+    // 특정 위치로 스크롤 이동하는 함수
+    function scrollToPosition(index) {
         var position = scrollPositions[index];
         $('html, body').stop().animate({
-          scrollTop: position
+            scrollTop: position
         }, 100, function() {
-          // 스크롤 이동이 완료되면 스크롤 이동 중 여부를 초기화합니다.
-          isScrolling = false;
+            // 스크롤 이동이 완료되면 스크롤 이동 중 여부를 초기화합니다.
+            console.log("position, currentScrollTop", position, currentScrollTop);
+            window.scrollTo(0, position);
+            isScrolling = false;
+
+            // 테마
+            if (index === 0 || index >= 9){ $('body').removeClass('is-darked') }
+            else { $('body').addClass('is-darked') }
+
+            // 예외
+            if (index <= 1) {$('body').removeClass('is-logo-hide')}
+            else {$('body').addClass('is-logo-hide')}
+
         });
 
         // 스크롤 이동 중임을 표시합니다.
         isScrolling = true;
-      }
+    }
+
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 100);
 }
 function section1(){
 	var elementList = document.getElementById('section1VisualList');
 	var element = document.getElementById('section1Thumb');
+	var elementCon = document.getElementById('section1VisualCon');
 	var startWidth = 424;
 	var endWidth = window.innerWidth;
 	var startHeight = 240;
-	var endHeight = window.innerHeight;
+	var endHeight = window.innerHeight + 10;
 	var startRadius = 80;
 	var endRadius = 0;
+    var startConOpacity = 0;
+    var endConOpacity = 1;
+    var startConScale = 0;
+    var endConScale = 1;
 	var startScrollTop = 0;
 	var endScrollTop = window.innerHeight - startHeight;
 	var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
@@ -103,12 +123,16 @@ function section1(){
 		var getWidth = startWidth + (endWidth - startWidth) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
 		var getHeight = startHeight + (endHeight - startHeight) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
 		var getRadius = startRadius + (endRadius - startRadius) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
+		var getConOpacity = startConOpacity + (endConOpacity - startConOpacity) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
+		var getConScale = startConScale + (endConScale - startConScale) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
 		element.style.width = getWidth + 'px';
 		element.style.height = getHeight + 'px';
 		element.style.borderTopLeftRadius = getRadius + 'px';
 		element.style.borderTopRightRadius = getRadius + 'px';
 		elementList.classList.add('is-fixed');
 		elementList.style.top = 0 + 'px';
+        elementCon.style.opacity = getConOpacity;
+        elementCon.style.transform = 'scale('+getConScale+')';
 		// console.log('ing', currentScrollTop, endHeight, endScrollTop);
 	} else if (currentScrollTop <= startScrollTop) {
 		element.style.width = startWidth + 'px';
@@ -116,6 +140,8 @@ function section1(){
 		element.style.borderTopLeftRadius = startRadius + 'px';
 		element.style.borderTopRightRadius = startRadius + 'px';
 		elementList.classList.add('is-fixed');
+        elementCon.style.opacity = startConOpacity;
+        elementCon.style.transform = 'scale('+startConScale+')';
 		// console.log('start', currentScrollTop, endHeight, endScrollTop);
 	} else if (currentScrollTop >= endScrollTop) {
 		element.style.width = endWidth + 'px';
@@ -124,6 +150,8 @@ function section1(){
 		element.style.borderTopRightRadius = endRadius + 'px';
 		elementList.classList.remove('is-fixed');
 		elementList.style.top = endScrollTop + 'px';
+        elementCon.style.opacity = endConOpacity;
+        elementCon.style.transform = 'scale('+endConScale+')';
 		// console.log('end', currentScrollTop, endHeight, endScrollTop);
 	}
 }
@@ -182,7 +210,7 @@ function section2(){
             var getOpacity = startOpacity + (endOpacity - startOpacity) * parallaxValue(currentScrollTop, endScrollTopHalf, endScrollTop);
             sectionText.style.transform = "translateY(" + getTextY + "px)";
             sectionText.style.opacity = getOpacity;
-            console.log('endScrollTop', currentScrollTop, endScrollTopHalf);
+            // console.log('endScrollTop', currentScrollTop, endScrollTopHalf);
         }
         sectionInner.style.top = 0  + 'px';
         section.classList.add('is-fixed');
@@ -298,6 +326,7 @@ function section4() {
     var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
 
     // Section 01
+    var section = document.getElementById('section4');
     var sectionWrap = document.getElementById('section4wrap');
     var sectionInner = document.getElementById('section4Inner');
     var sectionCon1 = document.getElementById('section4Con1');
@@ -305,8 +334,8 @@ function section4() {
     var sectionCon3 = document.getElementById('section4Con3');
     var sectionCon4 = document.getElementById('section4Con4');
 
-    // var startScrollTop1 = sectionWrap.getBoundingClientRect().top + currentScrollTop;
-    // var endScrollTop1 = startScrollTop1 + window.innerHeight;
+    var startScrollTop1 = section.getBoundingClientRect().top + currentScrollTop;
+    var endScrollTop1 = sectionWrap.getBoundingClientRect().top + currentScrollTop;
     var startScrollTop2 = sectionWrap.getBoundingClientRect().top + currentScrollTop;
     var endScrollTop2 = startScrollTop2 + window.innerHeight;
     var startScrollTop3 = endScrollTop2;
@@ -318,10 +347,18 @@ function section4() {
     var endSecScale = 0.85;
 	var startSecOpacity = 1;
 	var endSecOpacity = 0.75;
+    var readySecTop = 40;
     var startSecTop = window.innerHeight + 50;
-    var endSecTop = (window.innerHeight - 800) / 2;
+    // var endSecTop = (window.innerHeight - 800) / 2;
+    var endSecTop = 100;
 
-    if (currentScrollTop >= startScrollTop2 && currentScrollTop <= endScrollTop2) {
+    if (currentScrollTop >= startScrollTop1 && currentScrollTop <= endScrollTop1) {
+        var getSecTop = readySecTop + (endSecTop - readySecTop) * parallaxValue(currentScrollTop, startScrollTop1, endScrollTop1);
+        sectionCon1.style.top = getSecTop + "px";
+        sectionWrap.classList.remove('is-fixed');
+        sectionInner.style.top = '0';
+        // console.log('654684964')
+    } else if (currentScrollTop >= startScrollTop2 && currentScrollTop <= endScrollTop2) {
         var getSecScale = startSecScale + (endSecScale - startSecScale) * parallaxValue(currentScrollTop, startScrollTop2, endScrollTop2);
         var getHideOpacity = startSecOpacity + (endSecOpacity - startSecOpacity) * parallaxValue(currentScrollTop, startScrollTop2, endScrollTop2);
         var getSecTop = startSecTop + (endSecTop - startSecTop) * parallaxValue(currentScrollTop, startScrollTop2, endScrollTop2);
@@ -351,6 +388,8 @@ function section4() {
         sectionWrap.classList.add('is-fixed');
         sectionInner.style.top = '0';
 
+    } else if (currentScrollTop <= startScrollTop1) {
+        sectionCon1.style.top = 40 + "px";
     } else if (currentScrollTop <= startScrollTop2) {
         sectionWrap.classList.remove('is-fixed');
         sectionInner.style.top = '0';
@@ -358,7 +397,7 @@ function section4() {
     } else if (currentScrollTop >= endScrollTop4) {
         sectionWrap.classList.remove('is-fixed');
         sectionInner.style.top = (window.innerHeight * 3) + 'px';
-        console.log('currentScrollTop, startScrollTop, endScrollTop', currentScrollTop, startScrollTop4, endScrollTop4);
+        // console.log('currentScrollTop, startScrollTop, endScrollTop', currentScrollTop, startScrollTop4, endScrollTop4);
     }
 
 }
