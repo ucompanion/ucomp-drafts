@@ -107,7 +107,7 @@ function section1(){
 	var element = document.getElementById('section1Thumb');
 	var elementCon = document.getElementById('section1VisualCon');
 	var startWidth = 424;
-	var endWidth = window.innerWidth;
+	var endWidth = window.innerWidth + 10;
 	var startHeight = 240;
 	var endHeight = window.innerHeight + 10;
 	var startRadius = 80;
