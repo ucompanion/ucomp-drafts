@@ -85,7 +85,7 @@ function sectionsScroll() {
             isScrolling = false;
 
             // 테마
-            if (index === 0 || index >= 9){ $('body').removeClass('is-darked') }
+            if (index === 0 || index >= 8){ $('body').removeClass('is-darked') }
             else { $('body').addClass('is-darked') }
         });
 
@@ -341,11 +341,14 @@ function section4() {
 	var startSecOpacity = 1;
 	var endSecOpacity = 0.75;
 	var hideSecOpacity = 0;
-    var endSecTop = 40;
-    var startSecTop = 532;
+    var endSecTop = 68;
+    var startSecTop = 562;
 
     if (currentScrollTop >= startScrollTop1 && currentScrollTop <= endScrollTop1) {
-        sectionCon1.style.top = endSecTop + "px";
+        var getSecTop = 40 + (endSecTop - 40) * parallaxValue(currentScrollTop, startScrollTop1, endScrollTop1);
+        var getSecTopAfter = 532 + (startSecTop - 532) * parallaxValue(currentScrollTop, startScrollTop1, endScrollTop1);
+        sectionCon1.style.top = getSecTop + "px";
+        sectionCon2.style.top = getSecTopAfter + "px";
         sectionWrap.classList.remove('is-fixed');
         sectionInner.style.top = '0';
         // console.log('654684964')
@@ -386,9 +389,12 @@ function section4() {
         sectionInner.style.top = '0';
     } else if (currentScrollTop <= startScrollTop1) {
         sectionCon1.style.top = 40 + "px";
+        sectionCon2.style.top = 532 + "px";
     } else if (currentScrollTop <= startScrollTop2) {
         sectionWrap.classList.remove('is-fixed');
         sectionInner.style.top = '0';
+    } else if (currentScrollTop <= startScrollTop3) {
+
     } else if (currentScrollTop >= endScrollTop4) {
         sectionWrap.classList.remove('is-fixed');
         sectionInner.style.top = (492 * 3) + 'px';
