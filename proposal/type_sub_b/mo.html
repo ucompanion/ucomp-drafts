@@ -11,40 +11,73 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="section">
-        <div style="height: 500px; background-color: yellow"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: red"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: yellow"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: red"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: yellow"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: red"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: yellow"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: red"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
+      <main role="main" class="">
+        <section class="main">
+          <header>
+            <nav>
+              <h1 class="logo"><a href="#">HYOSUNG</a></h1>
+            </nav>
+            <div class="gnb">
+              <button type="button" class="">
+                <i class="icon global"></i>
+              </button>
+              <button type="button" class="">
+                <i class="icon search"></i>
+              </button>
+              <button type="button" class=""><i class="icon menu"></i></button>
+            </div>
+          </header>
+
+          <div class="cont">
+            <div class="cont-txt">
+              <p class="eng">
+                Discover<br />New Safety &<br />New Comfort<br />through Future
+              </p>
+            </div>
+          </div>
+          <div class="cont-bttm">
+            <div class="story">
+              <p>OUR<br />STORY</p>
+              <div class="line"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- section01 -->
+        <div class="section">
+          <div class="sec01">
+            <img src="images/mo/sec01.png" alt="" />
+          </div>
+        </div>
+
+        <!-- section02 -->
+        <div class="section">
+          <div class="sec02">
+            <img src="images/mo/sec02.png" alt="" />
+          </div>
+        </div>
+
+        <!-- section03 -->
+        <div class="section">
+          <div class="sec03">
+            <img src="images/mo/sec03.png" alt="" />
+          </div>
+        </div>
+      </main>
+      <!-- footer -->
+      <footer>
+        <img src="images/mo/footer.png" alt="" />
+      </footer>
     </div>
     <script>
+      // 페이지가 로드될 때 실행되는 함수
+      window.onload = function () {
+        // .cont-txt 요소 가져오기
+        var contTxt = document.querySelector(".cont-txt");
+
+        // cont-txt에 show 클래스 추가
+        contTxt.classList.add("show");
+      };
       window.addEventListener("DOMContentLoaded", function () {
         // 섹션 스크롤링
         const sections = document.querySelectorAll(".section");

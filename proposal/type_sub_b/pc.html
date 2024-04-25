@@ -1,41 +1,111 @@
-
 <!DOCTYPE html>
 <html lang="kr">
-<head>
-	<meta charset="UTF-8" />
-	<title>Leesoonjong</title>
-	<meta name="viewport" content="width=device-width, viewport-fit=cover" />
-	<meta name="format-detection" content="telephone=no" />
-	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/pc.css" />
-</head>
-<body>
-	<div class="wrapper">
-		<img src="images/mo/type_b_01.png" alt="" />
-	</div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Leesoonjong</title>
+    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/pc.css" />
+  </head>
+  <body>
+    <div class="page-wrap">
+      <main role="main" class="">
+        <section class="main">
+          <header>
+            <nav>
+              <h1 class="logo"><a href="#">HYOSUNG</a></h1>
+
+              <ul class="menu">
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">사업소개</a></li>
+                <li><a href="#">투자정보</a></li>
+              </ul>
+            </nav>
+            <div class="gnb">
+              <button type="button" class="">
+                <i class="icon global"></i>
+              </button>
+              <button type="button" class="">
+                <i class="icon search"></i>
+              </button>
+              <button type="button" class=""><i class="icon menu"></i></button>
+            </div>
+          </header>
+
+          <div class="cont">
+            <div class="cont-img"></div>
+            <div class="cont-txt">
+              <p class="eng">
+                Discover<br />New Safety & New Comfort<br />through Future
+              </p>
+            </div>
+          </div>
+          <div class="cont-bttm">
+            <div class="story">
+              <p>OUR<br />STORY</p>
+              <div class="line"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- section01 -->
+        <div class="section">
+          <div class="sec01">
+            <img src="images/pc/sec01.png" alt="" />
+          </div>
+        </div>
+
+        <!-- section01 -->
+        <div class="section">
+          <div class="sec01">
+            <img src="images/pc/sec02.png" alt="" />
+          </div>
+        </div>
+
+        <!-- section01 -->
+        <div class="section">
+          <div class="sec01">
+            <img src="images/pc/sec03.png" alt="" />
+          </div>
+        </div>
+
+        <!-- footer -->
+        <footer>
+          <img src="images/pc/footer.png" alt="" />
+        </footer>
+      </main>
+    </div>
     <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            // 섹션 스크롤링
-            const sections = document.querySelectorAll('section');
-            function checkSectionsVisibility() {
-                // Section
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    if (sectionTop < windowHeight * 0.75) {
-                        section.classList.add('show');
-                    }
-                });
-            }
-            function initScrolling(){
-                checkSectionsVisibility();
-            }
+      // 페이지가 로드될 때 실행되는 함수
+      window.onload = function () {
+        // .cont-txt 요소 가져오기
+        var contTxt = document.querySelector(".cont-txt");
 
-            initScrolling();
-            window.addEventListener('scroll', initScrolling);
-        });
+        // cont-txt에 show 클래스 추가
+        contTxt.classList.add("show");
+      };
+      window.addEventListener("DOMContentLoaded", function () {
+        // 섹션 스크롤링
+        const sections = document.querySelectorAll(".section");
+        function checkSectionsVisibility() {
+          // Section
+          sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (sectionTop < windowHeight * 0.75) {
+              section.classList.add("show");
+            }
+          });
+        }
+        function initScrolling() {
+          checkSectionsVisibility();
+        }
+
+        initScrolling();
+        window.addEventListener("scroll", initScrolling);
+      });
     </script>
-
-</body>
+  </body>
 </html>
