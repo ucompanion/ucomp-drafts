@@ -74,7 +74,9 @@ html.laptop body::-webkit-scrollbar-thumb {
   z-index: 1;
 }
 .main header nav {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 81px;
 }
