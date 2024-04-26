@@ -2,12 +2,12 @@
 <html lang="kr">
   <head>
     <meta charset="UTF-8" />
-    <title>Hyosung</title>
+    <title>Leesoonjong</title>
     <meta name="viewport" content="width=device-width, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="css/pc.css" />
+    <link rel="stylesheet" type="text/css" href="css/mo.css" />
   </head>
   <body>
     <div class="page-wrap">
@@ -15,13 +15,7 @@
         <section class="main">
           <header>
             <nav>
-              <h1 class="logo"><a href="../type_main_b/pc.html">HYOSUNG</a></h1>
-
-              <ul class="menu">
-                <li><a href="../type_sub_b/pc.html">회사소개</a></li>
-                <li><a href="../type_sub_b/pc.html">사업소개</a></li>
-                <li><a href="../type_sub_b/pc.html">투자정보</a></li>
-              </ul>
+              <h1 class="logo"><a href="../type_main_b/mo.html">HYOSUNG</a></h1>
             </nav>
             <div class="gnb">
               <button type="button" class="">
@@ -30,15 +24,15 @@
               <button type="button" class="">
                 <i class="icon search"></i>
               </button>
-              <a href="../type_sub_b/pc.html"><i class="icon menu"></i></a>
+              <a href="../type_sub_b/mo.html" type="button" class=""><i class="icon menu"></i></a>
             </div>
           </header>
 
           <div class="cont">
             <div class="cont-img"></div>
             <div class="cont-txt">
-              <p class="eng">Embody New Sustainability</p>
-              <p class="eng">through Future Materials</p>
+              <p class="eng">Embody<br />New Sustainability</p>
+              <p class="eng">through<br />Future Materials</p>
 
               <p>지속가능한 첨단의 가치를 추구하는 혁신의 효성</p>
             </div>
@@ -58,55 +52,48 @@
           </div>
         </section>
 
-        <!-- scroll -->
-
-        <!-- //scroll -->
-
         <!-- section01 -->
         <div class="section">
           <div class="sec01">
-            <img src="images/pc/sec01.png" alt="" />
+            <img src="images/mo/sec01.png" alt="" />
           </div>
         </div>
 
         <!-- section02 -->
         <div class="section">
           <div class="sec02">
-            <img src="images/pc/sec02.png" alt="" />
+            <img src="images/mo/sec02.png" alt="" />
           </div>
         </div>
 
         <!-- section03 -->
         <div class="section">
           <div class="sec03">
-            <img src="images/pc/sec03.png" alt="" />
+            <img src="images/mo/sec03.png" alt="" />
           </div>
         </div>
 
         <!-- section04 -->
         <div class="section">
           <div class="sec04">
-            <img src="images/pc/sec04.png" alt="" />
+            <img src="images/mo/sec04.png" alt="" />
           </div>
         </div>
 
         <!-- section05 -->
         <div class="section">
           <div class="sec05">
-            <img src="images/pc/sec05.png" alt="" />
+            <img src="images/mo/sec05.png" alt="" />
           </div>
         </div>
       </main>
 
       <!-- footer -->
       <footer>
-        <img src="images/pc/footer.png" alt="" />
+        <img src="images/mo/footer.png" alt="" />
       </footer>
     </div>
     <script>
-      // scroll
-
-      // scroll //////////////////////////////////
       // 페이지가 로드될 때 실행되는 함수
       window.onload = function () {
         // .cont-img 요소 가져오기
@@ -123,7 +110,6 @@
           contTxt.classList.add("show");
         });
       };
-
       window.addEventListener("DOMContentLoaded", function () {
         // 섹션 스크롤링
         const sections = document.querySelectorAll(".section");
@@ -144,7 +130,6 @@
         initScrolling();
         window.addEventListener("scroll", initScrolling);
       });
-
       var swiperSec3 = new Swiper(".swiper-sec3 .swiper", {
         spaceBetween: 20,
         slidesPerView: 4,

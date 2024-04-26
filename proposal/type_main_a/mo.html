@@ -1,155 +1,17 @@
 <!DOCTYPE html>
 <html lang="kr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Leesoonjong</title>
-    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/mo.css" />
-    <script type="javascript" src="js/swiper-bundle.min.js"></script>
-  </head>
-  <body>
-    <div class="page-wrap">
-      <main role="main" class="">
-        <section class="main">
-          <header>
-            <nav>
-              <h1 class="logo"><a href="#">HYOSUNG</a></h1>
-            </nav>
-            <div class="gnb">
-              <button type="button" class="">
-                <i class="icon global"></i>
-              </button>
-              <button type="button" class="">
-                <i class="icon search"></i>
-              </button>
-              <button type="button" class=""><i class="icon menu"></i></button>
-            </div>
-          </header>
+<head>
+	<meta charset="UTF-8" />
+	<title>Leesoonjong</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<style>
+		html, body {width: 100%; height: 100%;}
+		body {display: flex; justify-content: center; align-items: center; background-color: #333;}
 
-          <div class="cont">
-            <div class="cont-img"></div>
-            <div class="cont-txt">
-              <p class="eng">Embody<br />New Sustainability</p>
-              <p class="eng">through<br />Future Materials</p>
+	</style>
+</head>
+<body>
+	<iframe src="mo_iframe.html" style="width:360px; height:720px" frameborder="0" scrolling="yes"></iframe>
+</body>
 
-              <p>지속가능한 첨단의 가치를 추구하는 혁신의 효성</p>
-            </div>
-          </div>
-          <div class="cont-bttm">
-            <div class="stock">
-              <span class="stock-txt">IR</span>
-              <div class="stock-data">
-                <span class="data">56,300</span>
-                <span class="data-fluid">+800.0 (+1.44%)</span>
-              </div>
-            </div>
-            <div class="story">
-              <p>OUR<br />STORY</p>
-              <div class="line"></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- section01 -->
-        <div class="section">
-          <div class="sec01">
-            <img src="/proposal/type_main/images/mo/sec01.png" alt="" />
-          </div>
-        </div>
-
-        <!-- section02 -->
-        <div class="section">
-          <div class="sec02">
-            <img src="/proposal/type_main/images/mo/sec02.png" alt="" />
-          </div>
-        </div>
-
-        <!-- section03 -->
-        <div class="section">
-          <div class="sec03">
-            <img src="/proposal/type_main/images/mo/sec03.png" alt="" />
-          </div>
-        </div>
-
-        <!-- section04 -->
-        <div class="section">
-          <div class="sec04">
-            <img src="/proposal/type_main/images/mo/sec04.png" alt="" />
-          </div>
-        </div>
-
-        <!-- section05 -->
-        <div class="section">
-          <div class="sec05">
-            <img src="/proposal/type_main/images/mo/sec05.png" alt="" />
-          </div>
-        </div>
-      </main>
-
-      <!-- footer -->
-      <footer>
-        <img src="/proposal/type_main/images/mo/footer.png" alt="" />
-      </footer>
-    </div>
-    <script>
-      // 페이지가 로드될 때 실행되는 함수
-      window.onload = function () {
-        // .cont-img 요소 가져오기
-        var contImg = document.querySelector(".cont-img");
-
-        // .cont-txt 요소 가져오기
-        var contTxt = document.querySelector(".cont-txt");
-
-        // 확대되었다가 축소되는 효과를 줄 CSS 클래스 추가
-        contImg.classList.add("scale-down");
-
-        // 축소되면 cont-txt에 show 클래스 추가
-        contImg.addEventListener("transitionend", function () {
-          contTxt.classList.add("show");
-        });
-      };
-      window.addEventListener("DOMContentLoaded", function () {
-        // 섹션 스크롤링
-        const sections = document.querySelectorAll(".section");
-        function checkSectionsVisibility() {
-          // Section
-          sections.forEach((section) => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            if (sectionTop < windowHeight * 0.75) {
-              section.classList.add("show");
-            }
-          });
-        }
-        function initScrolling() {
-          checkSectionsVisibility();
-        }
-
-        initScrolling();
-        window.addEventListener("scroll", initScrolling);
-      });
-      var swiperSec3 = new Swiper(".swiper-sec3 .swiper", {
-        spaceBetween: 20,
-        slidesPerView: 4,
-        threshold: 5,
-        navigation: {
-          nextEl: "swiper-sec3 .swiper-button-next",
-          prevEl: "swiper-sec3 .swiper-button-prev",
-        },
-      });
-      var swiperSec4 = new Swiper(".swiper-sec4 .swiper", {
-        spaceBetween: 20,
-        slidesPerView: 4,
-        threshold: 5,
-        navigation: {
-          nextEl: "swiper-sec4 .swiper-button-next",
-          prevEl: "swiper-sec4 .swiper-button-prev",
-        },
-      });
-    </script>
-  </body>
 </html>
