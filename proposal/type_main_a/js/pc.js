@@ -8,7 +8,7 @@ function preventScroll(event) {
     event.preventDefault();
 }
 function sectionsScroll() {
-    console.log("window.scrollTo(0, 0)");
+    // console.log("window.scrollTo(0, 0)");
     var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
     var scroll_1 = document.querySelector('.section-1').getBoundingClientRect().top + currentScrollTop + window.innerHeight - 240;
     var scroll_21 = document.querySelector('.section-2').getBoundingClientRect().top + currentScrollTop;
@@ -57,13 +57,15 @@ function sectionsScroll() {
         var deltaY = event.originalEvent.deltaY;
         if (!isScrolling) {
             if (deltaY > 0) {
-            if (currentPositionIndex < scrollPositions.length - 1) {
+            if (currentPositionIndex <= scrollPositions.length - 1) {
                 currentPositionIndex++;
+                // console.log(scrollPositions.length - 1 , currentPositionIndex);
                 scrollToPosition(currentPositionIndex);
             }
-            } else if (deltaY < 0) {
+        } else if (deltaY < 0) {
             if (currentPositionIndex > 0) {
                 currentPositionIndex--;
+                // console.log(scrollPositions.length - 1, currentPositionIndex);
                 scrollToPosition(currentPositionIndex);
             }
             }
@@ -80,7 +82,7 @@ function sectionsScroll() {
             scrollTop: position
         }, 300, function() {
             // 스크롤 이동이 완료되면 스크롤 이동 중 여부를 초기화합니다.
-            console.log("position, currentScrollTop", position, currentScrollTop);
+            // console.log("position, currentScrollTop", position, currentScrollTop);
             window.scrollTo(0, position);
             isScrolling = false;
 
