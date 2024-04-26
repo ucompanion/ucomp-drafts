@@ -2,22 +2,9 @@ body {
   -webkit-overflow-scrolling: touch;
   background-color: #404040;
 }
-body::-webkit-scrollbar-thumb {
-  border-width: 4px;
-  border-style: solid;
-  border-color: transparent;
-  background-clip: content-box;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-body::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-body::-webkit-scrollbar-thumb:active {
-  background-color: rgba(0, 0, 0, 0.6);
-}
+/* 스크롤바의 폭 너비 */
 body::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
+  width: 0;
 }
 html.laptop body::-webkit-scrollbar-thumb {
   border-radius: 8px;
@@ -42,6 +29,7 @@ html.laptop body::-webkit-scrollbar-thumb {
 }
 
 .section {
+  text-align: center;
   transition: all 0.3s ease;
   transform: translateY(100px);
   opacity: 0.25;
@@ -58,15 +46,15 @@ html.laptop body::-webkit-scrollbar-thumb {
   height: 20px;
 }
 .icon.global {
-  background: url("/proposal/type_sub_b/images/mo/b_icon_global.png") no-repeat;
+  background: url("../images/mo/b_icon_global.png") no-repeat;
   background-size: cover;
 }
 .icon.search {
-  background: url("/proposal/type_sub_b/images/mo/b_icon_search.png") no-repeat;
+  background: url("../images/mo/b_icon_search.png") no-repeat;
   background-size: cover;
 }
 .icon.menu {
-  background: url("/proposal/type_sub_b/images/mo/b_icon_menu.png") no-repeat;
+  background: url("../images/mo/b_icon_menu.png") no-repeat;
   background-size: cover;
 }
 
@@ -75,8 +63,8 @@ html.laptop body::-webkit-scrollbar-thumb {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url("/proposal/type_sub_b/images/mo/b_main_bg.png") no-repeat
-    center center;
+  background: url("../images/mo/b_main_bg.png") no-repeat
+    center center / cover;
   font-family: "Pretendard";
   color: #fff;
 }
@@ -103,6 +91,9 @@ html.laptop body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+.main header .gnb .btn-menu {
+  display: inline-block;
 }
 .main .cont {
   position: absolute;
@@ -194,8 +185,9 @@ html.laptop body::-webkit-scrollbar-thumb {
 }
 
 .section img {
-  display: block;
+  /* display: block; */
   max-width: 100%;
+  vertical-align: top;
 }
 /* Content - Section1 */
 /* Content - Section2 */

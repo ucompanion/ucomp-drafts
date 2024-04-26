@@ -11,9 +11,16 @@ html {
   --colorPrimary: #f00;
   --colorSecondary: #f50;
 }
-
+body {
+  background-color: #404040;
+}
+/* 스크롤바의 폭 너비 */
+body::-webkit-scrollbar {
+  width: 0;
+}
 /* Layout */
 .page-wrap {
+  background-color: #fff;
   width: var(--bodyWidth);
   margin: auto;
 }
@@ -270,6 +277,7 @@ html {
 }
 /* Content - section */
 .section {
+  text-align: center;
   margin: 100px 0;
   transition: all 0.3s ease;
   transform: translateY(100px);
@@ -290,8 +298,8 @@ html {
   margin: 0;
 }
 .section img {
-  display: block;
   max-width: 100%;
+  vertical-align: top;
 }
 /* Content - Section1 */
 /* Content - Section2 */
@@ -301,4 +309,5 @@ html {
 /* Content - footer */
 footer img {
   max-width: 100%;
+  vertical-align: top;
 }

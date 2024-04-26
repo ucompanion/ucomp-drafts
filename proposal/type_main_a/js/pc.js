@@ -89,8 +89,8 @@ function sectionsScroll() {
             else { $('body').addClass('is-darked') }
 
             // 예외
-            if (index <= 1) {$('body').removeClass('is-logo-hide')}
-            else {$('body').addClass('is-logo-hide')}
+            if (index > 1) {$('body').addClass('is-header-hide')}
+            else {$('body').removeClass('is-header-hide')}
 
         });
 

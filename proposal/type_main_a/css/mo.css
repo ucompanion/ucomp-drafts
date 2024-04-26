@@ -17,10 +17,10 @@ body {
     max-width: 360px; margin: auto;
 }
 
-  /* 스크롤바의 폭 너비 */
-  body::-webkit-scrollbar {
-      width: 0;
-  }
+/* 스크롤바의 폭 너비 */
+body::-webkit-scrollbar {
+    width: 0;
+}
 
 /* Layout */
 .in-sec {margin: 0 auto; max-width:100%; padding:0 var(--bodySide);}
