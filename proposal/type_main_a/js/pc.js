@@ -78,7 +78,7 @@ function sectionsScroll() {
         var position = scrollPositions[index];
         $('html, body').stop().animate({
             scrollTop: position
-        }, 100, function() {
+        }, 300, function() {
             // 스크롤 이동이 완료되면 스크롤 이동 중 여부를 초기화합니다.
             console.log("position, currentScrollTop", position, currentScrollTop);
             window.scrollTo(0, position);

@@ -11,10 +11,10 @@ html {
     --colorPrimary: #f00;
     --colorSecondary: #f50;
 
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 body {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     max-width: 1920px; margin: auto;
     background-color: #404040;
 }
