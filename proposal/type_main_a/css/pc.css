@@ -24,7 +24,7 @@ body {
 .page-sec {position: relative; z-index: 50;}
 .page-header {position: fixed; left: 0; top: 0; width: 100%; z-index: 100; height: var(--headerHeight); visibility: visible; opacity: 1; transition:all 0.2s ease;}
 .page-header .in-sec {height: 100%; width: 100%; min-width: var(--bodyWidth);}
-.page-header .page-header-sec {width: 100%; height: 100%; display: flex; align-items: center;}
+.page-header .page-header-sec {width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;}
 .page-footer {position:relative; z-index: 100; display: flex; justify-content: center; background-color: #1D261E; width: 100%; overflow: hidden;;}
 .page-footer-sec {position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;}
 .is-header-hide .page-header {visibility: hidden; opacity: 0;}
