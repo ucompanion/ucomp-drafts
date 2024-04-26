@@ -1,8 +1,179 @@
-body{-webkit-overflow-scrolling:touch; background-color: #404040;}
-body::-webkit-scrollbar-thumb{border-width:4px;border-style:solid;border-color:transparent;background-clip:content-box;background-color:rgba(0,0,0,.2)}
-body::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,.4)}
-body::-webkit-scrollbar-thumb:active{background-color:rgba(0,0,0,.6)}
-body::-webkit-scrollbar{width:16px;height:16px}html.laptop body::-webkit-scrollbar-thumb{border-radius:8px}#wrap{overflow:clip}
-.wrapper{margin:0 auto;max-width:1920px;min-width:calc(1280px + 120px);padding: 0 60px; -webkit-box-sizing:border-box;box-sizing:border-box;background-color:#fff}
-.wrapper a {display: flex; justify-content: center;}
-.wrapper img {display: block; width: 100%;}
+body {
+  -webkit-overflow-scrolling: touch;
+  background-color: #404040;
+}
+body::-webkit-scrollbar-thumb {
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent;
+  background-clip: content-box;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+body::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+body::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+html.laptop body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+}
+#wrap {
+  overflow: clip;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1920px;
+  min-width: calc(1280px + 120px);
+  padding: 0 60px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.wrapper a {
+  display: flex;
+  justify-content: center;
+}
+.wrapper img {
+  display: block;
+  width: 100%;
+}
+
+/* Content - common */
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+.icon.scroll {
+  background: url("/proposal/type_sub_a/images/pc/icon_arrow.png") no-repeat;
+  background-size: cover;
+}
+/* Content - main */
+.main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("/proposal/type_sub_a/images/pc/type_a_bg.png") no-repeat
+    center center;
+  background-size: cover;
+  font-family: "Pretendard";
+  color: #fff;
+}
+.main header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 44px 100px;
+  z-index: 1;
+}
+.main header nav {
+  display: flex;
+  align-items: center;
+  gap: 81px;
+}
+.main header nav .logo {
+  font-weight: 800;
+  font-size: clamp(20px, 2vw, 28px);
+  color: #fff;
+}
+.main header nav ul.menu {
+  display: flex;
+  gap: 30px;
+}
+.main header nav ul.menu li {
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.main .cont {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main .cont .cont-txt {
+  /* display: none; */
+  z-index: 1;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.main .cont .cont-txt.show {
+  /* display: block; */
+  opacity: 1;
+  transform: translateY(0);
+}
+.main .cont .cont-txt p:not(.eng) {
+  margin-bottom: 48px;
+  font-weight: 400;
+  font-size: 28px;
+}
+.main .cont .cont-txt p.eng {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 84px;
+  color: #fff;
+}
+.main .cont-bttm {
+  position: absolute;
+  display: inline-grid;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  bottom: 0;
+  padding: 0 100px 40px;
+}
+.main .cont-bttm .scroll {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+}
+.main .cont-bttm .scroll p {
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  writing-mode: vertical-rl;
+}
+.main .cont-bttm .pag-wrap {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.main .cont-bttm .pagination {
+  display: inline-flex;
+  justify-self: center;
+  align-items: center;
+  gap: 8px;
+  max-height: 68px;
+  padding: 8px;
+  border-radius: 60px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.main .cont-bttm .pagination a {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 60px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+.main .cont-bttm .pagination a.active {
+  background: rgba(12, 222, 81, 1);
+}
