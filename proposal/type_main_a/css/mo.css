@@ -72,7 +72,7 @@ body::-webkit-scrollbar {
 
 /* Content - Section2 */
 .section-2 {height: 200vh; background: #06AF5E;}
-/* .section-2::after {content:''; display: block; height: 100vh; width: 100%; position: absolute; left: 0; top: 0; background-color: #ddd;} */
+.section-2 .bg-area {content:''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; background-color: #000; opacity: 0;}
 .section-2 .in-sec {position: absolute; left: 0; top: 0; z-index: 10; width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;}
 .section-2.is-fixed .in-sec {position: fixed;}
 .section-2 .tit-wrap {position: relative; width: 100%; height: 108px; transition: transform 0.1s ease;}

@@ -169,8 +169,16 @@ function section2(){
 	var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
 	var startScrollTop = section.getBoundingClientRect().top + currentScrollTop;
 	var endScrollTop = startScrollTop + window.innerHeight;
+    var endScrollTopAfter = endScrollTop + window.innerHeight;
 
     // Elements
+	var sectionBg = document.getElementById('section2Bg');
+	var startOpacity1 = 0;
+	var endOpacity1 = 0.8;
+	var startOpacity2 = endOpacity2;
+	var endOpacity2 = 1;
+
+
 	var sectionTitle = document.getElementById('section2Title');
 	var startTitleY = 60;
 	var endTitleY = 0;
@@ -196,6 +204,9 @@ function section2(){
     // console.log('ing', currentScrollTop, startScrollTop, endScrollTopHalf, endScrollTop);
     // If
     if (currentScrollTop >= startScrollTop && currentScrollTop <= endScrollTop) {
+        var getOpacity1 = startOpacity1 + (endOpacity1 - startOpacity1) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
+        sectionBg.style.opacity = getOpacity1;
+
         var getTitleX = 0;
         var getTitleY = startTitleY + (endTitleY - startTitleY) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
         sectionTitle.style.transform = "translate(" + getTitleX + "px, " + getTitleY + "px)";
@@ -236,6 +247,14 @@ function section2(){
         sectionText.style.opacity = endOpacity;
         section.classList.remove('is-fixed');
         sectionInner.style.top = '50%';
+
+        if (currentScrollTop <= endScrollTopAfter) {
+            var getOpacity2 = startOpacity2 + (endOpacity2 - startOpacity2) * parallaxValue(currentScrollTop, endScrollTop, endScrollTopAfter);
+            sectionBg.style.opacity = getOpacity2;
+        } else {
+            sectionBg.style.opacity = endOpacity2;
+        }
+
         // console.log('end', currentScrollTop, startScrollTop, endScrollTop);
 	}
 }
