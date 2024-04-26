@@ -11,12 +11,20 @@ html {
   --colorPrimary: #f00;
   --colorSecondary: #f50;
 }
+body {
+  background-color: #404040;
+}
 
 /* Layout */
 .in-sec {
   width: calc(var(--bodyWidth) + (var(--bodySide) * 2));
   margin: 0 auto;
   padding: 0 var(--bodySide);
+}
+.page-wrap {
+  background-color: #fff;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .page-header {
   height: var(--headerHeight);
@@ -106,6 +114,7 @@ html {
   position: relative;
   width: 100%;
   height: 100vh;
+  max-height: 1080px;
   background: rgba(1, 0, 0, 1);
   font-family: "Pretendard";
   color: #fff;

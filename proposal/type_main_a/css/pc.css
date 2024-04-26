@@ -16,10 +16,12 @@ html {
 body {
     scroll-behavior: smooth;
     max-width: 1920px; margin: auto;
+    background-color: #404040;
 }
 
 /* Layout */
-.in-sec {margin: 0 auto; max-width:100%; padding:0 var(--bodySide);}
+.page-wrap {background-color: #fff;}
+.in-sec {margin: 0 auto; max-width:1920px; padding:0 var(--bodySide);}
 .page-sec {position: relative; z-index: 50;}
 .page-header {position: fixed; left: 0; top: 0; width: 100%; z-index: 100; height: var(--headerHeight); visibility: visible; opacity: 1; transition:all 0.2s ease;}
 .page-header .in-sec {height: 100%; width: 100%; min-width: var(--bodyWidth);}
@@ -57,7 +59,8 @@ body {
 .section-1 {position: relative; width: 100%; height: calc(200vh - 240px); background-color: #Fff; overflow: hidden;}
 .section-1 .visual-desc {position: fixed; left: 0; top: 0; width: 100%; height: calc(100vh - 240px); padding-top: var(--headerHeight);}
 .section-1 .visual-desc .desc {position: absolute; left: 50%; top: 50%; transform:translate(-50%, -50%); font-weight: 700; font-size: 60px; line-height: 80px; text-align: center;}
-.section-1 .visual-list {position: absolute; top: 0; display: flex; justify-content: center; align-items: flex-start; gap: 28px; overflow: hidden; width: calc(100% + 424px); padding-top:calc(100vh - 240px); margin: 0 -212px;}
+.section-1 .visual-list {position: absolute; top: 0; overflow: hidden; padding-top:calc(100vh - 240px); width: 100%;}
+.section-1 .visual-list .visual-items {position: relative; max-width: calc(1920px + 424px); width: calc(100% + 424px); display: flex; justify-content: center; align-items: flex-start; gap: 28px; margin: 0 -212px;}
 .section-1 .visual-list.is-fixed {position: fixed;}
 .section-1 .visual-list .item {display: flex; align-items: flex-end; justify-content: center; width: 424px; height: 240px;}
 .section-1 .visual-list .item .item-thumb {display: flex; align-items: flex-end; justify-content: center; width: 424px; height: 240px; overflow: hidden; border-radius: 50px 50px 0 0;}
@@ -72,7 +75,7 @@ body {
 /* Content - Section2 */
 .section-2 {height: 200vh; background: #06AF5E;}
 /* .section-2::after {content:''; display: block; height: 100vh; width: 100%; position: absolute; left: 0; top: 0; background-color: #ddd;} */
-.section-2 .in-sec {position: absolute; left: 0; top: 0; z-index: 10; width: 100%; height: 100vh;}
+.section-2 .in-sec {position: absolute; left: 50%; top: 0; z-index: 10; width: 100%; height: 100vh; transform: translateX(-50%);}
 .section-2.is-fixed .in-sec {position: fixed;}
 .section-2 .tit-wrap {position: absolute; left: 50%; top: 50%; transform: translate(-361px, -120px); width: 722px; height: 240px; transition: transform 0.1s ease;}
 .section-2 .tit-wrap p {font-weight: 700; font-size: 60px; line-height: 80px; color: #fff;}
@@ -86,7 +89,7 @@ body {
 
 /* Content - Section3 */
 .section-3 {height: 400vh; background: #000;}
-.section-3 .bg-sec {display: flex; align-items: center; justify-content: center; position: absolute; left: 0; top: 0; width: 100%; height: 100vh; overflow: hidden; opacity: 1; transition:opacity 0.2s ease;}
+.section-3 .bg-sec {display: flex; align-items: center; justify-content: center; position: absolute; left: 50%; transform: translateX(-50%); top: 0; width: 100%; max-width: 1920px; height: 100vh; overflow: hidden; opacity: 1; transition:opacity 0.2s ease;}
 .section-3 .bg-sec img {height: 100%;}
 .section-3.is-fixed .bg-sec {position: fixed;}
 .section-3 .in-sec  {position: absolute; left: 0; top: 100vh; z-index: 10; display: block; height: 300vh; width: 100%;}
