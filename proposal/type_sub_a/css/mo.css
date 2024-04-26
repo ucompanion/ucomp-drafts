@@ -2,26 +2,15 @@ body {
   -webkit-overflow-scrolling: touch;
   background-color: #404040;
 }
-body::-webkit-scrollbar-thumb {
-  border-width: 4px;
-  border-style: solid;
-  border-color: transparent;
-  background-clip: content-box;
-  background-color: rgba(0, 0, 0, 0.2);
+body {
+  /* scroll-behavior: smooth; */
+  max-width: 360px; margin: auto;
 }
-body::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-body::-webkit-scrollbar-thumb:active {
-  background-color: rgba(0, 0, 0, 0.6);
-}
+/* 스크롤바의 폭 너비 */
 body::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
+  width: 0;
 }
-html.laptop body::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-}
+
 #wrap {
   overflow: clip;
 }
@@ -77,7 +66,7 @@ html.laptop body::-webkit-scrollbar-thumb {
 .main header .logo {
   width: 120px;
   height: 18px;
-  background: url("/proposal/type_sub_a/images/mo/mo_logo.png") no-repeat;
+  background: url("../images/mo/mo_logo.png") no-repeat;
   cursor: pointer;
 }
 .main header .gnb {
