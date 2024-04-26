@@ -422,6 +422,8 @@ function section4() {
 
     } else if (currentScrollTop <= startScrollTop1) {
         sectionCon1.style.top = 40 + "px";
+        sectionWrap.classList.remove('is-fixed');
+        sectionInner.style.top = '0';
     } else if (currentScrollTop <= startScrollTop2) {
         sectionWrap.classList.remove('is-fixed');
         sectionInner.style.top = '0';
