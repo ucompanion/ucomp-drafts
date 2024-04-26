@@ -127,6 +127,6 @@ body::-webkit-scrollbar {
 .section-5 .card-cont .con {margin-top: 4px; font-weight: 400; font-size: 14px; line-height: 20px; overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;}
 .section-5 .card-cont .date {margin-top: 20px; font-weight: 500; font-size: 14px; line-height: 20px; color: #999;}
 .section-5 .swiper {padding-bottom: 40px;}
-.section-5 .swiper .swiper-pagination {position: absolute; left: 0; top: auto; bottom: 0;}
+.section-5 .swiper .swiper-pagination {position: absolute; left: 0; right: 20px; top: auto; bottom: 0; width: 320px;}
 .section-5 .swiper .swiper-pagination-progressbar {background-color: #F9F9F9;}
 .section-5 .swiper .swiper-pagination-progressbar-fill {background-color: var(--colorPrimary);}
