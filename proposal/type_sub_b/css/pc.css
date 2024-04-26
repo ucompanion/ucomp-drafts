@@ -50,15 +50,15 @@ html.laptop body::-webkit-scrollbar-thumb {
   height: 28px;
 }
 .icon.global {
-  background: url("/proposal/type_main_b/images/pc/b_icon_global.png") no-repeat;
+  background: url("../images/pc/b_icon_global.png") no-repeat;
   background-size: cover;
 }
 .icon.search {
-  background: url("/proposal/type_main_b/images/pc/b_icon_search.png") no-repeat;
+  background: url("../images/pc/b_icon_search.png") no-repeat;
   background-size: cover;
 }
 .icon.menu {
-  background: url("/proposal/type_main_b/images/pc/b_icon_menu.png") no-repeat;
+  background: url("../images/pc/b_icon_menu.png") no-repeat;
   background-size: cover;
 }
 
@@ -67,7 +67,7 @@ html.laptop body::-webkit-scrollbar-thumb {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url("/proposal/type_sub_b/images/pc/b_main_bg.png") no-repeat
+  background: url("../images/pc/b_main_bg.png") no-repeat
     center center;
   font-family: "Pretendard";
   color: #fff;

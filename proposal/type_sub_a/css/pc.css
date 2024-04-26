@@ -50,7 +50,7 @@ html.laptop body::-webkit-scrollbar-thumb {
   height: 24px;
 }
 .icon.scroll {
-  background: url("/proposal/type_sub_a/images/pc/icon_arrow.png") no-repeat;
+  background: url("../images/pc/icon_arrow.png") no-repeat;
   background-size: cover;
 }
 /* Content - main */
@@ -58,7 +58,7 @@ html.laptop body::-webkit-scrollbar-thumb {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url("/proposal/type_sub_a/images/pc/type_a_bg.png") no-repeat
+  background: url("../images/pc/type_a_bg.png") no-repeat
     center center;
   background-size: cover;
   font-family: "Pretendard";
