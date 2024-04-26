@@ -103,15 +103,15 @@ body::-webkit-scrollbar {
   height: 20px;
 }
 .icon.global {
-  background: url("/proposal/type_main_b/images/pc/b_icon_global.png") no-repeat;
+  background: url("../images/pc/b_icon_global.png") no-repeat;
   background-size: cover;
 }
 .icon.search {
-  background: url("/proposal/type_main_b/images/pc/b_icon_search.png") no-repeat;
+  background: url("../images/pc/b_icon_search.png") no-repeat;
   background-size: cover;
 }
 .icon.menu {
-  background: url("/proposal/type_main_b/images/pc/b_icon_menu.png") no-repeat;
+  background: url("../images/pc/b_icon_menu.png") no-repeat;
   background-size: cover;
 }
 
@@ -162,7 +162,7 @@ body::-webkit-scrollbar {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("/proposal/type_main_b/images/pc/main_bg.png") no-repeat 50%
+  background: url("../images/pc/main_bg.png") no-repeat 50%
     50%;
   background-size: contain;
   transform: scale(4.5);
@@ -242,7 +242,7 @@ body::-webkit-scrollbar {
   content: "";
   width: 15px;
   height: 13.65px;
-  background: url("/proposal/type_main_b/images/pc/b_icon_up.png") no-repeat;
+  background: url("../images/pc/b_icon_up.png") no-repeat;
   background-size: cover;
 }
 .main .cont-bttm .stock-data .data-fluid {

@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
 /* Variables */
 html {
   --bodyWidth: 1200px;
@@ -73,16 +71,6 @@ html {
   align-items: center;
   gap: 20px;
 }
-.gnb .depth1-node {
-}
-.gnb .depth1-link {
-}
-.gnb .depth2-area {
-}
-.gnb .depth2-node {
-}
-.gnb .depth2-link {
-}
 .gnb .depth2-area {
   display: none;
 }
@@ -101,15 +89,15 @@ html {
   height: 28px;
 }
 .icon.global {
-  background: url("/proposal/type_main_b/images/pc/b_icon_global.png") no-repeat;
+  background: url("../images/pc/b_icon_global.png") no-repeat;
   background-size: cover;
 }
 .icon.search {
-  background: url("/proposal/type_main_b/images/pc/b_icon_search.png") no-repeat;
+  background: url("../images/pc/b_icon_search.png") no-repeat;
   background-size: cover;
 }
 .icon.menu {
-  background: url("/proposal/type_main_b/images/pc/b_icon_menu.png") no-repeat;
+  background: url("../images/pc/b_icon_menu.png") no-repeat;
   background-size: cover;
 }
 
@@ -168,7 +156,7 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("/proposal/type_main_b/images/pc/main_bg.png") no-repeat 50%
+  background: url("../images/pc/main_bg.png") no-repeat 50%
     50%;
   background-size: contain;
   transform: scale(2);
@@ -246,7 +234,7 @@ html {
   content: "";
   width: 15px;
   height: 13.65px;
-  background: url("/proposal/type_main_b/images/pc/b_icon_up.png") no-repeat;
+  background: url("../images/pc/b_icon_up.png") no-repeat;
   background-size: cover;
 }
 .main .cont-bttm .stock-data .data-fluid {
