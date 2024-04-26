@@ -8,7 +8,7 @@ function preventScroll(event) {
     event.preventDefault();
 }
 function sectionsScroll() {
-    console.log("window.scrollTo(0, 0)");
+    // console.log("window.scrollTo(0, 0)");
     var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
     var scroll_1 = document.querySelector('.section-1').getBoundingClientRect().top + currentScrollTop + window.innerHeight - 240;
     var scroll_21 = document.querySelector('.section-2').getBoundingClientRect().top + currentScrollTop;
@@ -55,15 +55,17 @@ function sectionsScroll() {
         var deltaY = event.originalEvent.deltaY;
         if (!isScrolling) {
             if (deltaY > 0) {
-                if (currentPositionIndex <= scrollPositions.length - 1) {
+                if (currentPositionIndex < scrollPositions.length - 1) {
                     currentPositionIndex++;
-                    if (currentPositionIndex > scrollPositions.length - 1) {currentPositionIndex = scrollPositions.length - 1}
+                    // if (currentPositionIndex > scrollPositions.length - 1) {currentPositionIndex = scrollPositions.length - 1}
+                    console.log(scrollPositions.length - 1 , currentPositionIndex);
                     scrollToPosition(currentPositionIndex);
                 }
                 $('body').addClass('is-header-hide')
             } else if (deltaY < 0) {
                 if (currentPositionIndex > 0) {
                     currentPositionIndex--;
+                    console.log(scrollPositions.length - 1, currentPositionIndex);
                     scrollToPosition(currentPositionIndex);
                 }
                 $('body').removeClass('is-header-hide')
@@ -77,11 +79,13 @@ function sectionsScroll() {
     // 특정 위치로 스크롤 이동하는 함수
     function scrollToPosition(index) {
         var position = scrollPositions[index];
+        if (index === scrollPositions.length - 1) { position = document.documentElement.scrollHeight - window.innerHeight }
+        console.log("position: ", position, index);
         $('html, body').stop().animate({
             scrollTop: position
         }, 300, function() {
             // 스크롤 이동이 완료되면 스크롤 이동 중 여부를 초기화합니다.
-            console.log("position, currentScrollTop", position, currentScrollTop);
+            // console.log("position, currentScrollTop", position, currentScrollTop);
             window.scrollTo(0, position);
             isScrolling = false;
 
@@ -197,7 +201,7 @@ function section2(){
 
         var getTitle3Y = startTitle3Y + (endTitle3Y - startTitle3Y) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
         sectionTitle3.style.transform = "translateY(" + getTitle3Y + "px)";
-        console.log('endScrollTop1', currentScrollTop, startScrollTop, endScrollTop);
+        // console.log('endScrollTop1', currentScrollTop, startScrollTop, endScrollTop);
 
         var getTextY = startTextY + (endTextY - startTextY) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
         var getOpacity = startOpacity + (endOpacity - startOpacity) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);

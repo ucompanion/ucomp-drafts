@@ -23,31 +23,30 @@ function sectionsScroll() {
     var scroll_43 = scroll_42 + (window.innerHeight * 1);
     var scroll_44 = scroll_42 + (window.innerHeight * 2);
     var scroll_45 = scroll_42 + (window.innerHeight * 3);
-    var scroll_46 = scroll_42 + (window.innerHeight * 4);
+    // var scroll_46 = scroll_42 + (window.innerHeight * 4);
     var scroll_51 = document.querySelector('.section-5').getBoundingClientRect().top + currentScrollTop;
-    var scroll_90 = scroll_51 + (100 * 1);
-    var scroll_last = document.documentElement.scrollHeight - window.innerHeight - 3;
+    // var scroll_90 = scroll_51 + (100 * 1);
+    var scroll_last = document.documentElement.scrollHeight - window.innerHeight;
     // console.log(scroll_last);
     var scrollPositions = [
-        0,
-        scroll_1,
-        scroll_21,
-        scroll_22,
-        scroll_23,
-        scroll_31,
-        scroll_32,
-        scroll_33,
-        scroll_34,
-        scroll_41,
-        scroll_42,
-        scroll_43,
-        scroll_44,
-        scroll_45,
-        scroll_46,
-        scroll_51,
-        scroll_90,
-        scroll_last,
+        0, // 1
+        scroll_1, // 2
+        scroll_21, // 3
+        scroll_22, // 4
+        scroll_23, // 5
+        scroll_31, // 6
+        scroll_32, // 7
+        scroll_33, // 8
+        scroll_34, // 9
+        scroll_41, // 10
+        scroll_42, // 11
+        scroll_43, // 12
+        scroll_44, // 13
+        scroll_45, // 14
+        scroll_51, // 15
+        scroll_last, // 16
     ];
+    console.log(scrollPositions, scrollPositions[15]);
     var currentPositionIndex = 0;
     var isScrolling = false;
 
@@ -57,16 +56,16 @@ function sectionsScroll() {
         var deltaY = event.originalEvent.deltaY;
         if (!isScrolling) {
             if (deltaY > 0) {
-            if (currentPositionIndex <= scrollPositions.length - 1) {
+            if (currentPositionIndex < scrollPositions.length - 1) {
                 currentPositionIndex++;
-                if (currentPositionIndex > scrollPositions.length - 1) {currentPositionIndex = scrollPositions.length - 1}
-                // console.log(scrollPositions.length - 1 , currentPositionIndex);
+                // if (currentPositionIndex > scrollPositions.length - 1) {currentPositionIndex = scrollPositions.length - 1}
+                console.log(scrollPositions.length - 1 , currentPositionIndex);
                 scrollToPosition(currentPositionIndex);
             }
         } else if (deltaY < 0) {
             if (currentPositionIndex > 0) {
                 currentPositionIndex--;
-                // console.log(scrollPositions.length - 1, currentPositionIndex);
+                console.log(scrollPositions.length - 1, currentPositionIndex);
                 scrollToPosition(currentPositionIndex);
             }
             }
@@ -79,7 +78,9 @@ function sectionsScroll() {
     // 특정 위치로 스크롤 이동하는 함수
     function scrollToPosition(index) {
         var position = scrollPositions[index];
-        console.log("position: ", position);
+        if (index === scrollPositions.length - 1) { position = document.documentElement.scrollHeight - window.innerHeight }
+        console.log("position: ", position, index);
+
         $('html, body').stop().animate({
             scrollTop: position
         }, 300, function() {
