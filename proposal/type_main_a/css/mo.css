@@ -99,7 +99,7 @@ body::-webkit-scrollbar {
 .section-3 .con-sec.sec-3 {top:calc(var(--conSecHeight) * 2); opacity: 0;}
 
 /* Content - Section4 */
-.section-4 {background-color: #fff;}
+.section-4 {background-color: #fff; padding-bottom: 50px;}
 .section-4 { --conSecHeight:520px }
 .section-4 .tit-sec {width: 100%; overflow: hidden; padding-top: var(--headerHeight);}
 .section-4 .tit-sec .marquee {height: 64px; font-weight: 400; font-size: 64px; line-height: 64px; text-align: left; white-space: nowrap; color: #0CDE51;}
@@ -113,7 +113,7 @@ body::-webkit-scrollbar {
 .section-4 .con-sec-wrap.is-fixed .in-sec {position: fixed;}
 
 /* Content - Section5 */
-.section-5 {padding-bottom: 100px; padding-top: 100px; background-color: #fff;}
+.section-5 {padding-bottom: 100px; padding-top: 50px; background-color: #fff;}
 .section-5 .in-sec {padding-right: 0;}
 .section-5 .sec-header .type {display: block; font-weight: 700; font-size: 16px; line-height: 24px; color: #0CDE51;}
 .section-5 .sec-header .title {display: block; margin-top: 16px; font-weight: 700; font-size: 28px; line-height: 40px;}

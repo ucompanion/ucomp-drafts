@@ -60,15 +60,17 @@ function sectionsScroll() {
                     // if (currentPositionIndex > scrollPositions.length - 1) {currentPositionIndex = scrollPositions.length - 1}
                     console.log(scrollPositions.length - 1 , currentPositionIndex);
                     scrollToPosition(currentPositionIndex);
+                    if (currentPositionIndex > 1){
+                        $('body').addClass('is-header-hide');
+                    }
                 }
-                $('body').addClass('is-header-hide')
             } else if (deltaY < 0) {
                 if (currentPositionIndex > 0) {
                     currentPositionIndex--;
                     console.log(scrollPositions.length - 1, currentPositionIndex);
                     scrollToPosition(currentPositionIndex);
+                    $('body').removeClass('is-header-hide')
                 }
-                $('body').removeClass('is-header-hide')
             }
 
             // 스크롤 이벤트를 passive로 처리할 수 없으므로 preventDefault() 호출
@@ -83,7 +85,7 @@ function sectionsScroll() {
         console.log("position: ", position, index);
         $('html, body').stop().animate({
             scrollTop: position
-        }, 300, function() {
+        }, 800, "easeInOutCubic", function() {
             // 스크롤 이동이 완료되면 스크롤 이동 중 여부를 초기화합니다.
             // console.log("position, currentScrollTop", position, currentScrollTop);
             window.scrollTo(0, position);
@@ -103,9 +105,12 @@ function sectionsScroll() {
     }, 100);
 }
 function section1(){
+    var elementDesc = document.getElementById('section1VisualDesc');
 	var elementList = document.getElementById('section1VisualList');
 	var element = document.getElementById('section1Thumb');
 	var elementCon = document.getElementById('section1VisualCon');
+	var startDescOpacity = 1;
+	var endDescOpacity = 0;
 	var startWidth = 280;
 	var endWidth = window.innerWidth + 5;
 	var startHeight = 240;
@@ -120,6 +125,7 @@ function section1(){
 	var endScrollTop = window.innerHeight - startHeight;
 	var currentScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
 	if (currentScrollTop >= startScrollTop && currentScrollTop <= endScrollTop) {
+        var getDescOpacity = startDescOpacity + (endDescOpacity - startDescOpacity) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
 		var getWidth = startWidth + (endWidth - startWidth) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
 		var getHeight = startHeight + (endHeight - startHeight) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
 		var getRadius = startRadius + (endRadius - startRadius) * parallaxValue(currentScrollTop, startScrollTop, endScrollTop);
@@ -131,6 +137,7 @@ function section1(){
 		element.style.borderTopRightRadius = getRadius + 'px';
 		elementList.classList.add('is-fixed');
 		elementList.style.top = 0 + 'px';
+        elementDesc.style.opacity = getDescOpacity;
         elementCon.style.opacity = getConOpacity;
         elementCon.style.transform = 'scale('+getConScale+')';
 		// console.log('ing', currentScrollTop, endHeight, endScrollTop);
