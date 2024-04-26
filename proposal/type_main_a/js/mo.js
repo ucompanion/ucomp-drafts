@@ -55,8 +55,9 @@ function sectionsScroll() {
         var deltaY = event.originalEvent.deltaY;
         if (!isScrolling) {
             if (deltaY > 0) {
-                if (currentPositionIndex < scrollPositions.length - 1) {
+                if (currentPositionIndex <= scrollPositions.length - 1) {
                     currentPositionIndex++;
+                    if (currentPositionIndex > scrollPositions.length - 1) {currentPositionIndex = scrollPositions.length - 1}
                     scrollToPosition(currentPositionIndex);
                 }
                 $('body').addClass('is-header-hide')

@@ -59,6 +59,7 @@ function sectionsScroll() {
             if (deltaY > 0) {
             if (currentPositionIndex <= scrollPositions.length - 1) {
                 currentPositionIndex++;
+                if (currentPositionIndex > scrollPositions.length - 1) {currentPositionIndex = scrollPositions.length - 1}
                 // console.log(scrollPositions.length - 1 , currentPositionIndex);
                 scrollToPosition(currentPositionIndex);
             }
@@ -78,11 +79,11 @@ function sectionsScroll() {
     // 특정 위치로 스크롤 이동하는 함수
     function scrollToPosition(index) {
         var position = scrollPositions[index];
+        console.log("position: ", position);
         $('html, body').stop().animate({
             scrollTop: position
         }, 300, function() {
             // 스크롤 이동이 완료되면 스크롤 이동 중 여부를 초기화합니다.
-            // console.log("position, currentScrollTop", position, currentScrollTop);
             window.scrollTo(0, position);
             isScrolling = false;
 
