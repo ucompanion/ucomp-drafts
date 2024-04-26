@@ -11,9 +11,6 @@ html {
   --colorPrimary: #f00;
   --colorSecondary: #f50;
 }
-body {
-  background-color: #404040;
-}
 
 /* Layout */
 .in-sec {
@@ -278,6 +275,7 @@ body {
 }
 /* Content - section */
 .section {
+  text-align: center;
   transition: all 0.3s ease;
   transform: translateY(100px);
   opacity: 0.25;
@@ -297,8 +295,9 @@ body {
   opacity: unset;
 }
 .section img {
-  display: block;
+  /* display: block; */
   max-width: 100%;
+  vertical-align: top;
 }
 /* Content - Section1 */
 /* Content - Section2 */
@@ -308,6 +307,7 @@ body {
 /* Content - footer */
 footer img {
   max-width: 100%;
+  vertical-align: top;
 }
 
 /* scroll */

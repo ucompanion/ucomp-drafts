@@ -1,7 +1,5 @@
 body {
   -webkit-overflow-scrolling: touch;
-  background-color: #404040;
-  max-width: 1920px;
 }
 body::-webkit-scrollbar-thumb {
   border-width: 4px;
@@ -26,11 +24,12 @@ html.laptop body::-webkit-scrollbar-thumb {
 #wrap {
   overflow: clip;
 }
+.page-wrap,
 .wrapper {
   margin: 0 auto;
   max-width: 1920px;
   min-width: calc(1280px + 120px);
-  padding: 0 60px;
+  /* padding: 0 60px; */
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #fff;
@@ -184,6 +183,7 @@ html.laptop body::-webkit-scrollbar-thumb {
 }
 /* Content - section */
 .section {
+  text-align: center;
   transition: all 0.3s ease;
   transform: translateY(100px);
   opacity: 0.25;
@@ -194,17 +194,12 @@ html.laptop body::-webkit-scrollbar-thumb {
 }
 
 .section img {
-  display: block;
   max-width: 100%;
+  vertical-align: top;
 }
-/* Content - Section1 */
-/* Content - Section2 */
-/* Content - Section3 */
-/* Content - Section4 */
-/* Content - Section5 */
-/* Content - footer */
 footer img {
   max-width: 100%;
+  vertical-align: top;
 }
 
 /* scroll */
