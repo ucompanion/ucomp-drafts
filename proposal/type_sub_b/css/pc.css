@@ -1,6 +1,7 @@
 body {
   -webkit-overflow-scrolling: touch;
   background-color: #404040;
+  max-width: 1920px;
 }
 body::-webkit-scrollbar-thumb {
   border-width: 4px;
