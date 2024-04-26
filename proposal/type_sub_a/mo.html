@@ -2,7 +2,7 @@
 <html lang="kr">
   <head>
     <meta charset="UTF-8" />
-    <title>Leesoonjong</title>
+    <title>Hyosung</title>
     <meta name="viewport" content="width=device-width, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
@@ -11,40 +11,73 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="section">
-        <div style="height: 500px; background-color: yellow"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: red"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: yellow"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: red"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: yellow"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: red"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: yellow"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
-      <div class="section">
-        <div style="height: 500px; background-color: red"></div>
-        <!-- <img src="images/mo/type_b_01.png" alt="" /> -->
-      </div>
+      <main role="main" class="">
+        <section class="main">
+          <header>
+            <h1
+              class="logo"
+              onclick="window.location.href='../type_main_a/mo.html'"
+            ></h1>
+            <div class="gnb">
+              <a href="../type_sub_a/mo.html" class="btn-menu"
+                ><i class="icon menu"></i
+              ></a>
+            </div>
+          </header>
+
+          <div class="cont">
+            <div class="cont-txt">
+              <p>사업소개</p>
+              <p class="eng">
+                Discover<br />New Safety &<br />New Comfort<br />through Future
+              </p>
+            </div>
+          </div>
+          <div class="cont-bttm">
+            <div class="pagination">
+              <a href="#">첨단소재</a>
+              <a href="#">정보통신</a>
+              <a href="#">Mobility</a>
+              <a href="#">물류</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- section01 -->
+        <div class="section">
+          <div class="sec01">
+            <img src="images/mo/sec01.png" alt="" />
+          </div>
+        </div>
+
+        <!-- section02 -->
+        <div class="section">
+          <div class="sec02">
+            <img src="images/mo/sec02.png" alt="" />
+          </div>
+        </div>
+
+        <!-- section03 -->
+        <div class="section">
+          <div class="sec03">
+            <img src="images/mo/sec03.png" alt="" />
+          </div>
+        </div>
+      </main>
+      <!-- footer -->
+      <footer>
+        <img src="images/mo/footer.png" alt="" />
+      </footer>
     </div>
     <script>
+      // 페이지가 로드될 때 실행되는 함수
+      window.onload = function () {
+        // .cont-txt 요소 가져오기
+        var contTxt = document.querySelector(".cont-txt");
+
+        // cont-txt에 show 클래스 추가
+        contTxt.classList.add("show");
+      };
       window.addEventListener("DOMContentLoaded", function () {
         // 섹션 스크롤링
         const sections = document.querySelectorAll(".section");

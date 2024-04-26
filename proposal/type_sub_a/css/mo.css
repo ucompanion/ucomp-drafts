@@ -40,7 +40,109 @@ html.laptop body::-webkit-scrollbar-thumb {
   display: block;
   max-width: 100%;
 }
+/* common */
+.icon {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.icon.menu {
+  background: url("../images/mo/icon_menu.png") no-repeat;
+  background-size: cover;
+}
 
+/* Content - main */
+.main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("../images/mo/type_a_bg.png") no-repeat center center / cover;
+  font-family: "Pretendard";
+  color: #fff;
+}
+.main header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  z-index: 1;
+}
+.main header nav {
+  display: flex;
+  align-items: center;
+  gap: 81px;
+}
+.main header .logo {
+  width: 120px;
+  height: 18px;
+  background: url("/proposal/type_sub_a/images/mo/mo_logo.png") no-repeat;
+  cursor: pointer;
+}
+.main header .gnb {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.main .cont {
+  position: absolute;
+  top: 140px;
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.main .cont .cont-txt {
+  /* display: none; */
+  z-index: 1;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.main .cont .cont-txt p:not(.eng) {
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.main .cont .cont-txt p.eng {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+}
+.main .cont .cont-txt.show {
+  /* display: block; */
+  opacity: 1;
+  transform: translateY(0);
+}
+.main .cont-bttm {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  bottom: 0;
+  padding: 20px;
+}
+.main .cont-bttm .pagination {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 48px;
+  align-items: center;
+  width: 100%;
+  border-radius: 60px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.main .cont-bttm .pagination a {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+}
+/* Content - section */
 .section {
   transition: all 0.3s ease;
   transform: translateY(100px);
@@ -49,4 +151,19 @@ html.laptop body::-webkit-scrollbar-thumb {
 .section.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.section img {
+  /* display: block; */
+  max-width: 100%;
+  vertical-align: top;
+}
+/* Content - Section1 */
+/* Content - Section2 */
+/* Content - Section3 */
+/* Content - Section4 */
+/* Content - Section5 */
+/* Content - footer */
+footer img {
+  max-width: 100%;
 }
