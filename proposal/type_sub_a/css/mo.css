@@ -1,10 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   -webkit-overflow-scrolling: touch;
   background-color: #404040;
 }
 body {
   /* scroll-behavior: smooth; */
-  max-width: 360px; margin: auto;
+  max-width: 360px;
+  margin: auto;
 }
 /* 스크롤바의 폭 너비 */
 body::-webkit-scrollbar {
