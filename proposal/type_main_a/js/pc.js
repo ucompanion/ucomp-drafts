@@ -1,3 +1,8 @@
+function setScrollTop() {
+    window.scrollTo(0, 0);
+    $('body').removeClass('is-darked is-header-hide');
+}
+
 // 스크롤 양에 따라 스타일을 적용하는 함수
 function parallaxValue(currentScrollTop, startScrollTop, endScrollTop){
 	return (currentScrollTop - startScrollTop) / (endScrollTop - startScrollTop)
