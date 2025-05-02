@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+/*-------------------------------------------------------------------
+	@Resets
+-------------------------------------------------------------------*/
+html,body,div,ul,ol,dl,li,dt,dd,p,h1,h2,h3,h4,h5,h6,table,thead,tbody,tr,th,td,caption,address,article,aside,canvas,details,figure,figcaption,main,footer,header,menu,nav,section,button,form,select,textarea,input,fieldset,legend,label,a,span,strong,em,address,dfn,xmp,small,i,b {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	letter-spacing: inherit;
+	list-style: none;
+	font-style: normal;
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: inherit;
+	color: inherit;
+	line-height: inherit;
+	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	-o-box-sizing: inherit;
+	-webkit-print-color-adjust: exact;
+	color-adjust: exact !important;
+	overscroll-behavior: none;
+}
+
+:before, :after {
+	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	-o-box-sizing: inherit;
+}
+html {
+	font-size: 1px;
+}
+body {
+	color: #444;
+	font-family: "Pretendard Variable", "sans-serif";
+	font-size: 14rem;
+	line-height: 1.4;
+	letter-spacing: -0.02em;
+	word-break: break-all;
+	word-wrap: break-word;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+button,
+[role="button"] {
+	cursor: pointer;
+}
+
+.blind {
+	position: fixed;
+	overflow: hidden;
+	border: 0;
+	margin: -1px;
+	width: 1px;
+	height: 1px;
+	clip: rect(1px, 1px, 1px, 1px);
+	-webkit-clip-path: inset(50%);
+	clip-path: inset(50%);
+}
+.block {
+	width: 100%;
+	display: block;
+	outline: 0;
+}
