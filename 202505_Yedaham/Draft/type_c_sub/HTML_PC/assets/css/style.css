@@ -128,37 +128,19 @@ html, body {
 	left: 0;
 	top: 0;
 	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #EAEAEA;
 	z-index: 10;
-	transition: all 0.2s linear;
+	/* transition: all 0.2s linear; */
 }
 .header .header-normal img,
 .header .header-active img {
 	height: 82rem;
 }
-
-/* 기본 상태 */
-.header .header-normal {
-	transform: translateY(0);
+.container {
+	padding-top: 82rem;
 }
-.header .header-active {
-	transform: translateY(-110%);
-}
-/* 엑티브 상태 */
-.header.is-gnb-opened .header-active,
-.header.is-active .header-active {
-	transform: translateY(0%);
-}
-.header.is-active .header-active {
-	box-shadow: 0 10rem 30rem rgba(51, 51, 51, .3);
-}
-.header.is-gnb-opened .header-active {
-	box-shadow: 0 0 0 0;
-}
-.header.is-gnb-opened .header-normal,
-.header.is-active .header-normal {
-	transform: translateY(-110%);
-}
-
 /* Gnb */
 .gnb-nav {
 	visibility: hidden;
@@ -176,7 +158,7 @@ html, body {
 }
 .gnb-nav-inner {
 	transition: all 0.1s linear;
-	transform: translateY(-110%);
+	/* transform: translateY(-110%); */
 }
 .gnb-nav.is-active {
 	visibility: visible;
@@ -184,10 +166,7 @@ html, body {
 	pointer-events: auto;
 	box-shadow: 0 10rem 30rem rgba(51, 51, 51, .3);
 }
-.gnb-nav.is-active .gnb-nav-inner {
-	transform: translateY(0%);
 
-}
 
 /*-------------------------------------------------------------------
 	@Content
@@ -275,7 +254,7 @@ html, body {
 }
 
 /* 상담신청 팝업 */
-.modal-cs {
+.modal-sub {
 	visibility: hidden;
 	position: fixed;
 	left: 0;
@@ -287,22 +266,22 @@ html, body {
 	pointer-events: none;
 	transition: all 0.2s ease;
 }
-.modal-cs.is-opened {
+.modal-sub.is-opened {
 	pointer-events: auto;
 	visibility: visible;
 	opacity: 1;
 }
-.modal-cs .modal-dialog {
+.modal-sub .modal-dialog {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
-	align-items: flex-end;
+	justify-content: center;
+	align-items: center;
 	padding: 0;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0,0.6);
 }
-.modal-cs .modal-dialog .modal-body {
+.modal-sub .modal-dialog .modal-body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -310,14 +289,14 @@ html, body {
 	overflow: auto;
 	overscroll-behavior: none;
 }
-.modal-cs .modal-dialog .modal-body .modal-section {
+.modal-sub .modal-dialog .modal-body .modal-section {
 	display: none;
 	width: 100%;
 }
-.modal-cs.is-searched .modal-dialog .modal-body .modal-section {
+.modal-sub.is-searched .modal-dialog .modal-body .modal-section {
 	display: block;
 }
-.modal-cs .modal-dialog .modal-footer {
+.modal-sub .modal-dialog .modal-footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;

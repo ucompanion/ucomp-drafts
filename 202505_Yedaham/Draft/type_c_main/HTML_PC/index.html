@@ -21,35 +21,40 @@
 			const quick_speed = 200;
 			$btn.hover(
 				function () {
-				$(this)
-					.addClass('is-hovered')
-					.stop(true) // 중첩 방지
-					.animate({ width: '300rem' }, quick_speed);
+					$(this)
+						.addClass('is-hovered')
+						.stop(true) // 중첩 방지
+						.animate({ width: '300rem' }, quick_speed);
 				},
 				function () {
-				$(this)
-					.stop(true)
-					.animate({ width: originalWidth }, quick_speed, function(){
-						$(this).removeClass('is-hovered');
-					});
+					$(this)
+						.stop(true)
+						.animate({ width: originalWidth }, quick_speed, function(){
+							$(this).removeClass('is-hovered');
+						});
 				}
 			);
 
 			const $header = $('.header');
 			const $qnb = $('.gnb-nav');
 			const gnb_speed = 200;
+			let closeTimer = null;
+
 			$header.hover(
 				function () {
-					$(this).addClass('is-gnb-opened');
-					setTimeout(function(){
-						$qnb.addClass('is-active');
-					}, gnb_speed)
+				clearTimeout(closeTimer); // 마우스가 다시 들어오면 닫기 취소
+				$header.addClass('is-gnb-opened');
+				setTimeout(function () {
+					$qnb.addClass('is-active');
+				}, gnb_speed);
 				},
 				function () {
-					$qnb.removeClass('is-active');
-					setTimeout(function(){
-						$header.removeClass('is-gnb-opened');
-					}, gnb_speed)
+					closeTimer = setTimeout(function () {
+						$qnb.removeClass('is-active');
+						$qnb.one('transitionend', function () {
+							$header.removeClass('is-gnb-opened');
+						});
+					}, 200); // 마우스가 벗어난 뒤 300ms 후 닫힘
 				}
 			);
 		});
@@ -117,15 +122,15 @@
 		</main>
 	</div>
 
-	<!-- Modal Search -->
+	<!-- Modal 상담신청 -->
 	<div class="modal modal-cs" id="modalCS">
-		<div class="modal-dialog">
+		<div class="modal-dialog" onclick="modalClose('modalCS')">
 			<div class="modal-body">
-				<button type="button" onclick="modalClose('modalCS')"><img src="./assets/img/sec_popup.png" alt=""></button>
+				<button type="button"><img src="./assets/img/sec_popup.png" alt=""></button>
 			</div>
 		</div>
 	</div>
-	<!-- // Modal Search -->
+	<!-- // Modal 상담신청 -->
 </body>
 
 </html>

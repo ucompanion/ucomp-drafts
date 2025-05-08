@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>SKT A TYPE</title>
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+	<script src="./assets/js/jquery-1.12.4.min.js"></script>
+	<script src="./assets/js/fullpage.min.js"></script>
+	<script src="./assets/js/ui.common.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<a href="../../intro/index_skt.html" target="_parent" class="header-normal"><i class="header-img"></i></a>
+			<a href="../../intro/index_skt.html" target="_parent" class="header-active"><i class="header-img"></i></a>
+		</header>
+		<main class="container">
+			<div id="fullpage" class="section_fullpage">
+				<section class="section sec_01">
+					<img src="./assets/img/type_a_draft.jpg" alt="">
+				</section>
+			</div>
+			<div class="floating-srch">
+				<button type="button" class="btn btn-srch-click" onclick="modalOpen('modalSrch')">
+					<img src="./assets/img/type_a_srch.png" alt="">
+				</button>
+				<button type="button" class="btn btn-srch-close" onclick="modalClose('modalSrch')">
+					<img src="./assets/img/type_a_srch_close.png" alt="">
+				</button>
+			</div>
+		</main>
+	</div>
+
+	<!-- Modal Search -->
+	<div class="modal modal-srch" id="modalSrch">
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<h1 class="blind">통합검색</h1>
+			</div>
+			<div class="modal-body">
+				<div class="modal-section">
+					<!-- 사용자 검색어 영역 -->
+					<div class="keyword-use-wrap">
+						<ul class="keyword-use-list">
+							<li class="keyword-use-item" id="keywordUseItem1">
+								<div class="keyword-use-label">
+									<button type="button" class="btn" onclick="keywordRemove('keywordUseItem1')">
+										<i class="icn icn-10-srch-remove-gr" aria-hidden="true"></i>
+										<span class="blind">키워드 삭제</span>
+									</button>
+									<span class="txt">2025 채용 관련 정보</span>
+								</div>
+							</li>
+							<li class="keyword-use-item" id="keywordUseItem2">
+								<div class="keyword-use-label">
+									<button type="button" class="btn" onclick="keywordRemove('keywordUseItem2')">
+										<i class="icn icn-10-srch-remove-gr" aria-hidden="true"></i>
+										<span class="blind">키워드 삭제</span>
+									</button>
+									<span class="txt">사이트맵</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- //사용자 검색어 영역 -->
+					<hr>
+
+					<!-- 검색결과 영역 -->
+					<div class="srch-result-wrap">
+						<h2 class="srch-result-title"><span class="label">2025 채용 관련 정보</span></h2>
+						<h3 class="srch-result-title">공지사항 (2)</h3>
+						<ul class="srch-result-list">
+						   <li>2024 공개채용 안내</li>
+						   <li>2024 공개채용 1차 면접 합격자 발표 안내</li>
+						   <li>2024 공개채용 2차 면접 합격자 발표 안내</li>
+						   <li>2024 공개채용 최종 합격자 발표 안내</li>
+						</ul>
+						<hr>
+						<div class="srch-result-link">
+							<a href="#none" class="btn btn-link">SK 채용 홈페이지</a>
+						</div>
+					</div>
+					<!-- //검색결과 영역 -->
+				</div>
+			</div>
+			<div class="modal-footer">
+				<!-- 추천 검색어 영역 -->
+				 <div class="keyword-recom-wrap">
+					<h3 class="keyword-recom-title">추천검색어</h3>
+					<ul class="keyword-recom-list">
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">신규</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">게시물</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">최다히트수</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">인기검색어</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">수상</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">주가</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">ESG</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">AI</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">채용</button>
+						</li>
+						<li class="keyword-recom-item">
+							<button type="button" class="btn-keyword" onclick="keywordSrchValue('keywordSrchInput', this)">어워드</button>
+						</li>
+					</ul>
+				</div>
+				<!-- // 추천 검색어 영역 -->
+				<!-- 검색어 입력 영역 -->
+				<div class="keyword-srch-wrap">
+					<div class="keyword-srch-input">
+						<input type="text" id="keywordSrchInput" class="input" placeholder="AI 통합 검색" oninput="searchReset('modalSrch', this)" />
+						<button type="submit" class="btn" onclick="searchResult('modalSrch')">
+							<i class="icn icn-40-srch" aria-hidden="true"></i>
+							<span class="blind">검색</span>
+						</button>
+					</div>
+				</div>
+				<!-- // 검색어 입력 영역 -->
+			</div>
+		</div>
+	</div>
+	<!-- // Modal Search -->
+</body>
+
+</html>
