@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import url("../../type_a_main/html_pc/assets/css/PretendardVariable/fonts.css");
+@import url("../../type_c/HTML_PC/assets/css/PretendardVariable/fonts.css");
 
 /*-------------------------------------------------------------------
 	@Resets
@@ -154,9 +154,9 @@ body.intro::before {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	background: url("../img/intro.jpg") no-repeat center 0;
+	background: url("../img/intro.png") no-repeat center 0;
 	background-size: cover;
-	opacity: 0.5;
+	/* opacity: 0.5; */
 }
 
 body.intro .ucomp {
@@ -204,10 +204,11 @@ body.intro .ucomp {
 }
 .intropage .intro-innerbox h1 {
 	color: #fff;
-	font-size: 72px;
-	line-height: 90px;
+	/* font-size: 72px; */
+	/* line-height: 90px; */
 	font-weight: 700;
 	text-align: center;
+	margin-bottom: 60px;
 }
 
 .intropage .intro-innerbox h1 span {
@@ -284,12 +285,18 @@ body.intro .ucomp {
 }
 
 .intropage .intro-innerbox .indexlist.type2 ul li .pic a {
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.15),
+		-10px 0 40px rgba(0, 0, 0, 0.15);
 }
 
 .intropage .intro-innerbox .indexlist.type2 ul li .pic img {
-	box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.15),
-		-10px 0 40px rgba(0, 0, 0, 0.15);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .intropage .intro-innerbox .indexlist.type2 ul li div a {
