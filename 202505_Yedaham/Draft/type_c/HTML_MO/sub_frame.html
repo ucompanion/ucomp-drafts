@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>SKT A TYPE</title>
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+	<style>
+		.container {
+			padding-top: 74rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<a href="./index.html" target="_parent" class="header-active" onclick="modalOpen('modalAnb'); return false">
+				<img src="./assets/img/header_act.png" alt="">
+			</a>
+		</header>
+		<main class="container">
+			<div id="fullpage" class="section_fullpage">
+				<section class="section sec_01" style="background-color: #fff;">
+					<img src="./assets/img/sec_sub.png" alt="">
+				</section>
+				<section class="section sec_07">
+					<a href="#" onclick="window.scrollTo(0,0); return false"><img src="./assets/img/footer.png" alt=""></a>
+				</section>
+			</div>
+		</main>
+	</div>
+
+	<!-- Modal Search -->
+	<div class="modal modal-anb" id="modalAnb">
+		<div class="modal-dialog" onclick="modalClose('modalAnb');">
+			<div class="modal-body">
+				<img src="./assets/img/popup_anb_header.png" alt="">
+				<img src="./assets/img/popup_anb_content.png" alt="">
+			</div>
+		</div>
+	</div>
+	<!-- // Modal Search -->
+</body>
+
+</html>

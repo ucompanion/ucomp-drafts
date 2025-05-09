@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>SKT A TYPE</title>
+	<link rel="stylesheet" type="text/css" href="./assets/css/swiper-bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.main.css" />
+	<script src="./assets/js/jquery-1.12.4.min.js"></script>
+	<script src="./assets/js/fullpage.min.js"></script>
+	<script src="./assets/js/swiper-bundle.min.js"></script>
+	<script src="./assets/js/ui.common.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#fullpage').fullpage({
+				// normalScrollElements: '.sec_05',
+				scrolloverflowmacstyle: false,
+				'onLeave' : function (index, nextIndex, direction){
+					// Header
+					if ( nextIndex.index === 0 ){
+						$('.header').removeClass('is-active');
+
+						const video = document.getElementById('mainVideo');
+						if (video && video.paused) {
+							video.play().catch((e) => {
+							// 재생이 실패했을 경우(권한 문제 등) 대비
+							console.warn('비디오 재생 실패:', e);
+							});
+						}
+					} else {
+						$('.header').addClass('is-active');
+					};
+
+				},
+				// responsiveOverflow 재설정 방지
+				afterResponsive: function (isResponsive) {
+					if ($('.modal.is-opened').length) {
+						// 모달이 열려 있는 경우 overflow 설정을 막음
+						$('body').css('overflow', 'hidden'); // 원하는 값으로 고정
+					}
+				}
+			});
+
+			const visualSwiper = new Swiper(".swiper", {
+				threshold: 3,
+				slidesPerView: 1,
+			});
+
+
+			const $btn = $('.btn-quick.hovered');
+			const originalWidth = $btn.width(); // 현재 너비를 저장 (예: 150px)
+			const quick_speed = 200;
+			$btn.hover(
+				function () {
+					$(this)
+						.addClass('is-hovered')
+						.stop(true) // 중첩 방지
+						.animate({ width: '300rem' }, quick_speed);
+				},
+				function () {
+					$(this)
+						.stop(true)
+						.animate({ width: originalWidth }, quick_speed, function(){
+							$(this).removeClass('is-hovered');
+						});
+				}
+			);
+		});
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<a href="../../index.html" class="header-normal block">
+				<img src="./assets/img/header_nor.png" alt="" />
+			</a>
+			<a href="../../index.html" class="header-active block">
+				<img src="./assets/img/header_act.png" alt="" />
+			</a>
+
+			<nav class="gnb-nav">
+				<div class="gnb-nav-inner">
+					<img src="assets/img/gnb.png" alt="">
+				</div>
+			</nav>
+		</header>
+		<main class="container">
+			<div id="fullpage" class="section_fullpage">
+				<section class="section sec_01">
+					<div class="swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="./assets/img/sec_main_01_img.png" alt="">
+							</div>
+							<div class="swiper-slide">
+								<video id="mainVideo" width="1920" height="1080" autoplay muted loop>
+									<source src="./assets/img/sec_main_01_vod.mp4" type="video/mp4">
+									브라우저가 video 태그를 지원하지 않습니다.
+								</video>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section sec_02">
+					<img src="./assets/img/sec_main_02.png" alt="">
+				</section>
+				<section class="section sec_03">
+					<img src="./assets/img/sec_main_03.png" alt="">
+				</section>
+				<section class="section sec_04">
+					<img src="./assets/img/sec_main_04.png" alt="">
+				</section>
+				<section class="section sec_05">
+					<img src="./assets/img/sec_main_05.png" alt="">
+				</section>
+				<section class="section sec_06">
+					<img src="./assets/img/sec_main_06.png" alt="">
+				</section>
+				<section class="section sec_07">
+					<img src="./assets/img/footer.png" alt="">
+				</section>
+			</div>
+			<div class="quickmenu">
+				<button type="button" class="btn btn-quick hovered">
+					<span class="label-basic">전화번호 안내</span>
+					<span class="label-hover"><img src="./assets/img/quick01_hover.png" alt=""></span>
+				</button>
+				<button type="button" class="btn btn-quick">
+					<span class="label-basic">제휴 장례식장</span>
+				</button>
+				<button type="button" class="btn btn-quick" onclick="location.href='./sub_01.html'">
+					<span class="label-basic">다이렉트 가입</span>
+				</button>
+				<button type="button" class="btn btn-quick" onclick="modalOpen('modalCS')">
+					<span class="label-basic">상담신청</span>
+				</button>
+				<button type="button" class="btn btn-quick primary">
+					<span class="label-basic">카카오톡 상담</span>
+				</button>
+			</div>
+		</main>
+	</div>
+
+	<!-- Modal 상담신청 -->
+	<div class="modal modal-cs" id="modalCS">
+		<div class="modal-dialog" onclick="modalClose('modalCS')">
+			<div class="modal-body">
+				<button type="button"><img src="./assets/img/sec_main_popup.png" alt=""></button>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal 상담신청 -->
+</body>
+
+</html>

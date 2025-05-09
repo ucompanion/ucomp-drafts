@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+@import url("./PretendardVariable/fonts.css");
+/*-------------------------------------------------------------------
+	@Resets
+-------------------------------------------------------------------*/
+html,body,div,ul,ol,dl,li,dt,dd,p,h1,h2,h3,h4,h5,h6,table,thead,tbody,tr,th,td,caption,address,article,aside,canvas,details,figure,figcaption,main,footer,header,menu,nav,section,button,form,select,textarea,input,fieldset,legend,label,a,span,strong,em,address,dfn,xmp,small,i,b {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	letter-spacing: inherit;
+	list-style: none;
+	font-style: normal;
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: inherit;
+	color: inherit;
+	line-height: inherit;
+	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	-o-box-sizing: inherit;
+	-webkit-print-color-adjust: exact;
+	color-adjust: exact !important;
+	overscroll-behavior: none;
+}
+
+:before, :after {
+	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	-o-box-sizing: inherit;
+}
+html {
+	font-size: 1px;
+}
+body {
+	color: #444;
+	font-family: "Pretendard Variable", "sans-serif";
+	font-size: 14rem;
+	line-height: 1.4;
+	letter-spacing: -0.02em;
+	word-break: break-all;
+	word-wrap: break-word;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+button,
+[role="button"] {
+	cursor: pointer;
+}
+
+.blind {
+	position: fixed;
+	overflow: hidden;
+	border: 0;
+	margin: -1px;
+	width: 1px;
+	height: 1px;
+	clip: rect(1px, 1px, 1px, 1px);
+	-webkit-clip-path: inset(50%);
+	clip-path: inset(50%);
+}
+.block {
+	display: block;
+}
+
+/* 스크롤바 전체 영역 */
+::-webkit-scrollbar {
+	width: 0px;  /* 세로 스크롤바 너비 */
+	height: 0px; /* 가로 스크롤바 높이 */
+}
+
+/* 스크롤바 트랙 (배경) */
+::-webkit-scrollbar-track {
+	background: #f1f1f1; /* 연한 회색 배경 */
+	border-radius: 4px;
+}
+
+/* 스크롤바 핸들 (움직이는 부분) */
+::-webkit-scrollbar-thumb {
+	background: #888; /* 진한 회색 */
+	border-radius: 4px;
+}
+
+/* 마우스 호버 시 */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+/*-------------------------------------------------------------------
+	@Layout
+-------------------------------------------------------------------*/
+/* Variables */
+:root {
+	--spacer-side: 20rem;
+	--max-inner: 100%;
+	--modal-anb-inner: 100%;
+	--modal-anb-spacer: 20rem;
+	--color-primary: #EA002C;
+
+}
+
+/* Page */
+html, body {
+	height: 100%;
+	background-color: #000;
+}
+
+.is-scroll-locked {
+	overflow: hidden;
+}
+
+.inner {
+	width: 100%;
+	max-width: calc(var(--max-inner) + (var(--spacer-side) * 2));
+	padding-left: var(--spacer-side);
+	padding-right: var(--spacer-side);
+	margin: auto;
+}
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	margin: 0 auto;
+}
+.header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 200;
+	width: 100%;
+}
+.header .header-img {
+	display: block;
+	width: 100%;
+}
+.header .header-active {
+	background-color: #fff;
+}
+.header .header-normal,
+.header .header-active {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	transition: transform 0.2s ease;
+}
+/* 기본 상태 */
+/* .header .header-normal {
+	transform: translateY(0);
+}
+.header .header-active {
+	transform: translateY(-110%);
+} */
+/* 엑티브 상태 */
+/* .header.is-active .header-active {
+	transform: translateY(0%);
+}
+.header.is-active .header-normal {
+	transform: translateY(-110%);
+} */
+
+/*-------------------------------------------------------------------
+	@Content
+-------------------------------------------------------------------*/
+/* Fullpage */
+.section_fullpage {
+	z-index: 10;
+}
+.section_fullpage .fp-overflow {
+	outline: 0;
+}
+.section_fullpage .section img {
+	width: 100%;
+}
+
+/* 검색모달 레이아웃 */
+.modal-anb {
+	visibility: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.1s ease;
+}
+.modal-anb.is-opened {
+	pointer-events: auto;
+	visibility: visible;
+	opacity: 1;
+}
+.modal-anb .modal-dialog {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.95);
+}
+.modal-anb .modal-dialog .modal-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-grow: 1;
+	overflow: auto;
+	overscroll-behavior: none;
+}
+.modal-anb .modal-dialog .modal-body hr {
+	height: 1rem;
+	margin:16rem 0 20rem;
+	border: 0;
+	background-color: #CCCCCC;
+}
+.modal-anb .modal-dialog .modal-body .modal-section {
+	display: none;
+	width: 100%;
+}
+.modal-anb.is-searched .modal-dialog .modal-body .modal-section {
+	display: block;
+}
+.modal-anb .modal-dialog .modal-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: none;
+}
+/* //검색모달 레이아웃 */

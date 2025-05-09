@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>SKT A TYPE</title>
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+	<script src="./assets/js/jquery-1.12.4.min.js"></script>
+	<script src="./assets/js/fullpage.min.js"></script>
+	<script src="./assets/js/ui.common.js"></script>
+	<script>
+		$(function(){
+			$('#fullpage').fullpage({
+				// normalScrollElements: '.sec_05 .sec_05 .sec_05',
+				scrolloverflowmacstyle: false,
+				'onLeave' : function (index, nextIndex, direction){
+					// Header
+					if ( nextIndex.index === 0 ){
+						$('.header').removeClass('is-active');
+					} else {
+						$('.header').addClass('is-active');
+					};
+
+				},
+				// responsiveOverflow 재설정 방지
+				afterResponsive: function (isResponsive) {
+					if ($('.modal.is-opened').length) {
+						// 모달이 열려 있는 경우 overflow 설정을 막음
+						$('body').css('overflow', 'hidden'); // 원하는 값으로 고정
+					}
+				}
+			});
+		})
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<a href="../../index.html" target="_parent" class="header-normal" onclick="modalOpen('modalAnb'); return false">
+				<img src="./assets/img/header_nor.png" alt="">
+			</a>
+		</header>
+		<main class="container">
+			<div id="fullpage" class="section_fullpage">
+				<section class="section sec_01">
+					<img src="./assets/img/sec_main_01.png" alt="">
+				</section>
+				<section class="section sec_02">
+					<a href="./sub.html" target="_parent"><img src="./assets/img/sec_main_02.png" alt=""></a>
+				</section>
+				<section class="section sec_03">
+					<img src="./assets/img/sec_main_03.png" alt="">
+				</section>
+				<section class="section sec_04" style="padding-top: 160rem; background-color: #fff;">
+					<img src="./assets/img/sec_main_04.png" alt="">
+				</section>
+				<section class="section sec_05">
+					<img src="./assets/img/sec_main_05.png" alt="">
+				</section>
+				<section class="section sec_06">
+					<img src="./assets/img/sec_main_06.png" alt="">
+				</section>
+				<section class="section sec_07">
+					<img src="./assets/img/footer.png" alt="">
+				</section>
+			</div>
+		</main>
+	</div>
+
+	<!-- Modal Search -->
+	<div class="modal modal-anb" id="modalAnb">
+		<div class="modal-dialog" onclick="modalClose('modalAnb');">
+			<div class="modal-body">
+				<img src="./assets/img/popup_anb_header.png" alt="">
+				<img src="./assets/img/popup_anb_content.png" alt="">
+			</div>
+		</div>
+	</div>
+	<!-- // Modal Search -->
+</body>
+
+</html>
