@@ -29,19 +29,7 @@ $(function(){
         }, gnb_speed);
       }
     });
-
-    // 스크롤이 이동할 때마다 실행
-    window.addEventListener('scroll', checkScrollPosition);
 })
-
-// 스크롤 체크
-function checkScrollPosition() {
-    if (window.scrollY >= 250) {
-        $('.header').addClass('is-active');
-    } else {
-        $('.header').removeClass('is-active');
-    }
-}
 
 // 모달 열기
 function modalOpen(id) {
