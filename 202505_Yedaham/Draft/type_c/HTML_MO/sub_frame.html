@@ -15,15 +15,37 @@
 		.container {
 			padding-top: 74rem;
 		}
+		.link {
+			display: block;
+			background-color: transparent;
+			/* background-color: aquamarine; */
+		}
+		.link_01 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 45%;
+			height: 100%;
+		}
+		.link_02 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 80rem;
+			height: 100%;
+		}
+
 	</style>
 </head>
 
 <body>
 	<div class="wrapper">
 		<header class="header">
-			<a href="./index.html" target="_parent" class="header-active" onclick="modalOpen('modalAnb'); return false">
+			<div class="header-active">
 				<img src="./assets/img/header_act.png" alt="">
-			</a>
+				<a href="./index.html" target="_parent" class="link link_01"></a>
+				<a href="#" class="link link_02" onclick="modalOpen('modalAnb'); return false"></a>
+			</div>
 		</header>
 		<main class="container">
 			<div id="fullpage" class="section_fullpage">

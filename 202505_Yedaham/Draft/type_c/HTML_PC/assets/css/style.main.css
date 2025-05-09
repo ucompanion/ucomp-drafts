@@ -138,15 +138,17 @@ html, body {
 
 /* 기본 상태 */
 .header .header-normal {
-	transform: translateY(0);
+	/* transform: translateY(0); */
+	opacity: 1;
 }
 .header .header-active {
-	transform: translateY(-110%);
+	/* transform: translateY(-110%); */
+	opacity: 0;
 }
 /* 엑티브 상태 */
 .header.is-gnb-opened .header-active,
 .header.is-active .header-active {
-	transform: translateY(0%);
+	opacity: 1;
 }
 .header.is-active .header-active {
 	box-shadow: 0 10rem 30rem rgba(51, 51, 51, .3);
@@ -156,7 +158,7 @@ html, body {
 }
 .header.is-gnb-opened .header-normal,
 .header.is-active .header-normal {
-	transform: translateY(-110%);
+	opacity: 0;
 }
 
 /* Gnb */

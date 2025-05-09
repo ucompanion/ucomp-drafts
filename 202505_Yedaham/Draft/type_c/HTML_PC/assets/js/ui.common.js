@@ -1,26 +1,34 @@
 $(function(){
     const $header = $('.header');
     const $qnb = $('.gnb-nav');
-    const gnb_speed = 200;
-    let closeTimer = null;
+    const gnb_speed = 300;
+    const hoverIntentDelay = 150; // 이 시간 이상 머무르면 진짜로 열린다
 
-    $header.hover(
-        function () {
-        clearTimeout(closeTimer); // 마우스가 다시 들어오면 닫기 취소
+    let openTimer = null;
+    let closeTimer = null;
+    let isGnbOpened = false;
+
+    $header.on('mouseenter', function () {
+      clearTimeout(closeTimer);
+
+      openTimer = setTimeout(() => {
+        isGnbOpened = true;
         $header.addClass('is-gnb-opened');
-        setTimeout(function () {
-            $qnb.addClass('is-active');
+        $qnb.addClass('is-active');
+      }, hoverIntentDelay); // 일정 시간 후에만 열림
+    });
+
+    $header.on('mouseleave', function () {
+      clearTimeout(openTimer);
+
+      if (isGnbOpened) {
+        closeTimer = setTimeout(() => {
+          $qnb.removeClass('is-active');
+          $header.removeClass('is-gnb-opened');
+          isGnbOpened = false;
         }, gnb_speed);
-        },
-        function () {
-            closeTimer = setTimeout(function () {
-                $qnb.removeClass('is-active');
-                $qnb.one('transitionend', function () {
-                    $header.removeClass('is-gnb-opened');
-                });
-            }, 200); // 마우스가 벗어난 뒤 300ms 후 닫힘
-        }
-    );
+      }
+    });
 
     // 스크롤이 이동할 때마다 실행
     window.addEventListener('scroll', checkScrollPosition);
